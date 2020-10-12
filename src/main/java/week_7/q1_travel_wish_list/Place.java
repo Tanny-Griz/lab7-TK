@@ -52,6 +52,7 @@ public class Place /* TODO make Place objects Comparable, so they can be sorted 
     // TODO create the private fields
     
     // TODO create a public constructor with required arguments
+    // so public Place( ...arguments here... )  {  ... code here ... }
     
     // TODO create get and set methods for the private fields
     
