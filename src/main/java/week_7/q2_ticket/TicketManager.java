@@ -19,32 +19,26 @@ public class TicketManager {
 
     void manage() {
         
-        boolean quit = false;
+        boolean wantToQuit = false;
 
-        while (!quit) {
+        while (!wantToQuit) {
 
             int userChoice = ticketUI.showMenuGetChoice();
 
-            // TODO Problem 3: add the two new options to this switch statement
-            
-            switch (userChoice) {
-                case TicketUI.ADD_TICKET:
-                    menuOptionAddTicket();
-                    break;
-                case TicketUI.SEARCH_BY_ID:
-                    menuOptionSearchById();
-                    break;
-                case TicketUI.DELETE_BY_TICKET_ID:
-                    menuOptionDeleteById();
-                    break;
-                case TicketUI.SHOW_NEXT_TICKET:
-                    menuOptionShowNextTicket();
-                    break;
-                case TicketUI.SHOW_ALL_TICKETS:
-                    menuOptionDisplayAllTickets();
-                    break;
-                case TicketUI.QUIT:
-                    quit = true;
+            // TODO Problem 3: add the two new options here statement
+
+            if (userChoice == TicketUI.ADD_TICKET) {
+                menuOptionAddTicket();
+            } else if (userChoice == TicketUI.SEARCH_BY_ID) {
+                menuOptionSearchById();
+            } else if (userChoice == TicketUI.DELETE_BY_TICKET_ID) {
+                menuOptionDeleteById();
+            } else if (userChoice == TicketUI.SHOW_NEXT_TICKET) {
+                menuOptionShowNextTicket();
+            } else if (userChoice == TicketUI.SHOW_ALL_TICKETS) {
+                menuOptionDisplayAllTickets();
+            } else if (userChoice == TicketUI.QUIT) {
+                wantToQuit = true;
             }
         }
     }
@@ -71,6 +65,7 @@ public class TicketManager {
             ticketUI.displayTicket(ticket);
         }
     }
+
 
     /* Ask for ticket ID, call deleteTicketByID to find ticket, confirm delete operation, and delete */
     protected void menuOptionDeleteById() {
