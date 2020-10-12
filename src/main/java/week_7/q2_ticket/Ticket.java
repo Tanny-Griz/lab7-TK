@@ -2,7 +2,7 @@ package week_7.q2_ticket;
 
 import java.util.Date;
 
-public class Ticket {
+public class Ticket implements Comparable<Ticket> {
 
     private int priority;
     private String reporter; //Stores person or department who reported problem
@@ -60,9 +60,25 @@ public class Ticket {
         
         // TODO modify this method. If the ticket is not resolved, return the String below.
         //  If the ticket is resolved, return a String that includes the same data plus the resolution, and date resolved.
-        return("ID: " + this.ticketID + " Description: " + this.description + " Priority: " +
-                this.priority + " Reported by: " + this.reporter + " Reported on: " + this.dateReported);
+        return("ID: " + this.ticketID
+                + " Description: " + this.description
+                + " Priority: " + this.priority
+                + " Reported by: " + this.reporter
+                + " Reported on: " + this.dateReported);
     }
-    
+
+    @Override
+    public int compareTo(Ticket otherTicket) {
+
+        //Joint equal priorities, sort with oldest first
+        if (this.getPriority() == otherTicket.getPriority()){
+            return this.getDateReported().compareTo(otherTicket.getDateReported());
+        }
+
+        else {
+            // Sort with smallest priority number at the start
+            return this.getPriority() - otherTicket.getPriority();
+        }
+    }
 }
 

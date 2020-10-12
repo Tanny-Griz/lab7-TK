@@ -7,7 +7,7 @@ import java.util.LinkedList;
  *
  * Storage for Resolved Ticket objects.
  * Implemented as a Singleton - there can only ever be one ResolvedTicketStore.
- * If you want to work with the ResolvedTicketStore,, call ResolvedTicketStore.getInstance()
+ * If you want to work with the ResolvedTicketStore, call ResolvedTicketStore.getInstance()
  *
  * You don't need to modify this class.
  *

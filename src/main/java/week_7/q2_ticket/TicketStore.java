@@ -1,5 +1,7 @@
 package week_7.q2_ticket;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 
@@ -35,11 +37,10 @@ public class TicketStore {
     }
     
     /** Add all of the tickets in a list to the Ticket Queue, in priority order.
-     * @param tickets a list of tickets.
-     */
+     * @param tickets a list of tickets. */
     public void addAll(LinkedList<Ticket> tickets) {
         ticketQueue.addAll(tickets);
-        ticketQueue.sort(ticketComparator);
+        Collections.sort(ticketQueue);
     }
     
     
@@ -47,14 +48,13 @@ public class TicketStore {
      * @param newTicket the new Ticket to add. */
     public void add(Ticket newTicket) {
         ticketQueue.add(newTicket);
-        ticketQueue.sort(ticketComparator);
+        Collections.sort(ticketQueue);
     }
     
     
     /** Returns all tickets in the queue.
      *
-     * @return All the tickets.
-     */
+     * @return All the tickets.  */
     public LinkedList<Ticket> getAllTickets() {
         return ticketQueue;
     }
@@ -77,8 +77,7 @@ public class TicketStore {
     
     /** Searches store for ticket with given ID.
      * @param id The ticket ID
-     * @return The ticket with this ID, if found; null otherwise
-     */
+     * @return The ticket with this ID, if found; null otherwise */
     public Ticket getTicketById(int id) {
         for (Ticket t : ticketQueue) {
             if (t.getTicketID() == id) {
@@ -88,7 +87,6 @@ public class TicketStore {
         
         return null; // If ticket with this ID is not found
     }
-    
     
     
     /** Delete a single ticket by ticket ID.
@@ -108,7 +106,8 @@ public class TicketStore {
         return false;
         
     }
-    
+
+
     /** Create a list of tickets, with a description containing
      * the given String. The search is not case sensitive.
      * @param description Text to search for in Ticket descriptions
@@ -124,25 +123,5 @@ public class TicketStore {
     public void removeAll() {
         ticketQueue.clear();
     }
-    
-    // This is to sort tickets with highest priority first
-    // If two tickets have the same priority, oldest first
-    
-    private Comparator<Ticket> ticketComparator = new Comparator<Ticket>() {
-        @Override
-        public int compare(Ticket t1, Ticket t2) {
-            
-            //Joint equal priorities, sort with oldest first
-            if (t1.getPriority() == t2.getPriority()){
-                return t1.getDateReported().compareTo(t2.getDateReported());
-            }
-            
-            else {
-                // Sort with smallest priority number at the start
-                return t1.getPriority() - t2.getPriority();
-            }
-        }
-    };
-    
- 
+
 }
