@@ -78,14 +78,15 @@ Add a check to `TicketUI.getNewTicketInfo()` method, to ensure that the priority
 ### Problem 3: New menu options - Delete by Description, Search by Description
 
 Add two new options to the menu: **Delete by Description**, and **Search by Description**. 
- Create two new static constants called `DELETE_BY_DESCRIPTION` and `SEARCH_BY_DESCRIPTION`. You'll need to add some more int constants; and modify the `configureMenuOptions` method; and modify the switch statement in `manage`.
+ Create two new static constants called `DELETE_BY_DESCRIPTION` and `SEARCH_BY_DESCRIPTION`. 
+ You'll need to add some more int constants; and modify the `manage` method; and modify the if - else if - else if ...  statement in `manage`.
 
 
 ### Problem 4: Implement search by description
 
 The Search By Description feature will search your ticket list and return a new list of Tickets whose descriptions contain a certain String. For example, you might want to search for all tickets with the word “server” in the description.
 
-The search should NOT be case sensitive.
+The search should NOT be case-sensitive.
 
 You should not modify the description when you save tickets. So, the approach of saving all descriptions in lowercase or uppercase is not an acceptable solution for this problem.
  
