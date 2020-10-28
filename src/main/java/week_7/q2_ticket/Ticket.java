@@ -8,7 +8,7 @@ public class Ticket implements Comparable<Ticket> {
     private String reporter; //Stores person or department who reported problem
     private String description;
     private Date dateReported;
-    private int ticketID;     //The ID for each ticket - an instance variable. Each Ticket will have it's own ticketID variable
+    private final int ticketID;     //The ID for each ticket - an instance variable. Each Ticket will have it's own ticketID variable
     
     // TODO Problem 5: tickets need to store the resolution Date in a variable called dateResolved
     // TODO Problem 5: and a String describing the resolution

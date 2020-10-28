@@ -109,8 +109,7 @@ public class TicketManager {
         // Ask user for search term e.g. "server". Use TicketUI to ask the question.
 
         // If there are matching tickets, use TicketUI to ask user which ticket ID to delete;
-        // call deleteTicketById(ticketID) to delete the ticket.
-        // Optional: give the user the choice to quit the delete process by entering -1
+        // call the deleteTicketById(ticketID) method in this class to delete the ticket.
 
         // else, use TicketUI to show user 'not found' message
 
@@ -137,6 +136,10 @@ public class TicketManager {
 
                 // Delete ticket from store.
                 ticketStore.deleteTicketById(ticketID);
+
+                // Use ticketUI to display a delete confirmation message.
+            } else {
+                ticketUI.userMessage("Cancelled - ticket not deleted.");
             }
         }
     }

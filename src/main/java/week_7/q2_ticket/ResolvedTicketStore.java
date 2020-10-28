@@ -22,7 +22,7 @@ public class ResolvedTicketStore {
     private static ResolvedTicketStore instance;
     
     private ResolvedTicketStore() {
-        resolvedTickets = new LinkedList<Ticket>();
+        resolvedTickets = new LinkedList<>();
     }
     
     public static ResolvedTicketStore getInstance(){
