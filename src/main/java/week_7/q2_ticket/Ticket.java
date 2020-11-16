@@ -60,11 +60,11 @@ public class Ticket implements Comparable<Ticket> {
         
         // TODO modify this method. If the ticket is not resolved, return the String below.
         //  If the ticket is resolved, return a String that includes the same data plus the resolution, and date resolved.
-        return("ID: " + this.ticketID
+        return "ID: " + this.ticketID
                 + " Description: " + this.description
                 + " Priority: " + this.priority
                 + " Reported by: " + this.reporter
-                + " Reported on: " + this.dateReported);
+                + " Reported on: " + this.dateReported;
     }
 
     @Override
