@@ -12,7 +12,8 @@ import static input.InputUtils.*;
 public class TicketUI {
     
     // Constants used to display menu options, and figure out what user entered.
-    // TODO Problem 3: add constants for the two new options
+    // TODO Problem 3: add constants for the two new options. Make sure you use new
+    //  numeric values for your new constants.
     
     static final int ADD_TICKET = 1;
     
@@ -20,6 +21,7 @@ public class TicketUI {
     static final int DELETE_BY_TICKET_ID = 3;
     static final int SHOW_NEXT_TICKET = 4;
     static final int SHOW_ALL_TICKETS = 5;
+
     static final int QUIT = 99;
     
     private Map<Integer, String> options = new TreeMap<>();
@@ -42,7 +44,7 @@ public class TicketUI {
         while (true) {
             
             for (int option : options.keySet()) {
-                System.out.println(String.format("%d: %s", option, options.get(option)));
+                System.out.printf("%d: %s\n", option, options.get(option));
             }
             
             int task = intInput("Enter your selection");
@@ -52,14 +54,14 @@ public class TicketUI {
                 return task;
             }
             
-            // Else, loop until user enters valid choice from the menu
+            // Otherwise, loop until user enters valid choice from the menu
         }
     }
     
     
     protected Ticket getNewTicketInfo() {
         
-        Date dateReported = new Date(); //Default constructor creates Date with current date/time
+        Date dateReported = new Date(); // Default Date constructor creates Date with current date/time
         
         String description = stringInput("Enter description of the problem: ");
         String reporter = stringInput("Who reported this problem? ");
@@ -95,13 +97,18 @@ public class TicketUI {
     
     
     protected void displayTickets(LinkedList<Ticket> tickets) {
-        System.out.println(" ------- All tickets ----------");
-        
-        for ( Ticket t : tickets ) {
-            System.out.println(t); // This calls the toString method for the Ticket object.
+
+        if (tickets.isEmpty()) {
+            System.out.println(" ******** No tickets ******** ");
+        } else {
+            System.out.println(" --------- All tickets --------- ");
+
+            for (Ticket t : tickets) {
+                System.out.println(t); // This calls the toString method for the Ticket object.
+            }
+
+            System.out.println(" --------- End of ticket list --------- ");
         }
-        
-        System.out.println(" ------- End of ticket list ----------");
     }
     
     

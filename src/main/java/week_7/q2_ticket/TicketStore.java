@@ -53,7 +53,6 @@ public class TicketStore {
     
     
     /** Returns all tickets in the queue.
-     *
      * @return All the tickets.  */
     public LinkedList<Ticket> getAllTickets() {
         return ticketQueue;
@@ -72,8 +71,7 @@ public class TicketStore {
     public int ticketsInQueue() {
         return ticketQueue.size();
     }
-    
-    
+
     
     /** Searches store for ticket with given ID.
      * @param id The ticket ID
@@ -94,7 +92,6 @@ public class TicketStore {
     public boolean deleteTicketById(int deleteID) {
         
         //Loop over all tickets. Delete the one with this ticket ID
-        
         for (Ticket ticket : ticketQueue) {
             if (ticket.getTicketID() == deleteID) {
                 ticketQueue.remove(ticket);
@@ -104,9 +101,7 @@ public class TicketStore {
         
         // Not found? Return false
         return false;
-        
     }
-
 
     /** Create a list of tickets, with a description containing
      * the given String. The search is not case sensitive.

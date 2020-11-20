@@ -1,13 +1,13 @@
 # Lab 7
 
-**For all questions: if a specific method or variable name is given, use it.**
+**For all questions: when a specific name is listed for method or variable, use it.**
  
 ### Problem 1: Travel Wish List
  
 A place object will need three private fields:
  *  A String name (for example, Hawaii)
  *  A String reason (a reason for visiting, for example, to go surfing)
- *  A Date created (when the Place object was created.
+ *  A Date created (when the Place object was created).
 
 Date object information, example: https://github.com/claraj/Java2545Examples/blob/master/src/main/java/week7_first_classes/DateObjects.java
 
@@ -27,22 +27,21 @@ to be sorted.
 Add the `compareTo()` method that Comparable requires.
 
 Place objects need to be printed. Create a `toString` method
-that returns a String with all of the information about this place.
+that returns a String with all the information about this place.
 For the example data above, the String should be this EXACT form:
 
 "Place to visit: Hawaii. Reason: to go surfing. Date created: Thu Oct 03 10:37:02 CDT 2019"
 
 If the place name is "Rome" and the reason is "to visit the Colosseum" then
-the String should be in this EXACT form:
+the String should be in this EXACT form, but with the actual date it was created,
 
 "Place to visit: Rome. Reason: to visit the Colosseum. Date created: Thu Oct 03 10:42:19 CDT 2019"
 
 The Date information will be whatever date's toString method returns. You don't need to do any
 date formatting.
-    
 
  
-## Question 2 Support Ticket Manager 
+## Question 2 Support Ticket Manager  
 
 This program is a prototype to manage IT support tickets for a company. Users would call or email a helpdesk to report computer problems, and this program keeps a record of all current problems. 
 
@@ -62,11 +61,13 @@ Run and test the program with some example support tickets.
 
 ### Problem 1: Review Design
 
+Read all of the code that is provided. Several features are already implemented. 
 To think about: 
 
 * What is each class for? How are different responsibilities divided between the classes? 
-* If `TicketStore` used permanent storage, like a database, instead of an in-memory LinkedList, would `TicketUI` or `Question_3_Support_Ticket_Manager` have to do anything differently?
-* Make sure you understand the role of the TicketCounter class. How is it used to created new Ticket ID values? Why is it important that this 
+* What tasks does TicketManager delegate to ticketUI (a TicketUI object), ticketQueue (a TicketStore object)? Why do you think it does this? Or in other words, why doesn't TicketManager do everything?
+* If `TicketStore` used permanent storage, like a database, instead of an in-memory LinkedList, would `TicketUI` or `TicketManager` have to do anything differently?
+* Make sure you understand the role of the TicketCounter class. How is it used to created new Ticket ID values? 
 * How does Ticket_Manager access a TicketStore object? Is it possible to create more than one TicketStore object? Why do you think this is? Hint: Google the "Singleton design pattern." 
 
 
@@ -105,7 +106,7 @@ Use the `displayTickets` method in TicketUI to display all matching tickets.
 
 In your program, when a ticket is deleted, it has been resolved in some way. Either a technician fixed the problem, or the user has figured out the solution, or it’s become a non-issue in some other way.
 
-Modify the program so you can save information about deleted tickets.
+Modify the program to can save information about deleted tickets.
 
 Add two new private fields (variables) to the Ticket class.
 
@@ -115,7 +116,7 @@ And, a String field called `resolution` that will store why the ticket was close
 Add public get and set methods for the two new fields. 
 
 Modify the Ticket class toString method.  
-If the ticket has not be resolved, return the current String.  
+If the ticket has not been resolved, return the String that the existing toString method returns.  
 If the ticket has been resolved, the toString method should return all the data in the current String, plus the resolution, and date resolved.  
 
 ### Problem 6: Implement delete by ID
@@ -124,9 +125,11 @@ A ResolvedTicketStore class is provided for you. It stores resolved tickets in a
 
 Create a ResolvedTicketStore object in Ticket_Manager when the program starts. Note that you'll need to use the `ResolveTicketStore.getInstance()` method to access the singleton `resolvedTickets` object. 
 
-Now, when you delete a Ticket, your `deleteTicketById` method should ask for the resolution. Store the resolution String, plus the current Date in the correct Ticket. Now, remove this Ticket from the ticketQueue list.
+Now, when you delete a Ticket, your `deleteTicketById` method should ask for the resolution. Store the resolution String, plus the current Date in the correct Ticket. 
 
-Finally, add the resolved ticket to your ResolvedTicketStore.
+Then remove this Ticket from the ticketQueue.
+
+Finally, add the resolved ticket to the resolvedTicketStore.
 
 
 ### Problem 7: Implement delete by description

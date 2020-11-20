@@ -5,10 +5,10 @@ import java.util.Date;
 public class Ticket implements Comparable<Ticket> {
 
     private int priority;
-    private String reporter; //Stores person or department who reported problem
+    private String reporter;     // Stores person or department who reported problem
     private String description;
     private Date dateReported;
-    private final int ticketID;     //The ID for each ticket - an instance variable. Each Ticket will have it's own ticketID variable
+    private final int ticketID;    // The ID for each ticket - an instance variable. Each Ticket will have it's own ticketID variable
     
     // TODO Problem 5: tickets need to store the resolution Date in a variable called dateResolved
     // TODO Problem 5: and a String describing the resolution
@@ -70,7 +70,7 @@ public class Ticket implements Comparable<Ticket> {
     @Override
     public int compareTo(Ticket otherTicket) {
 
-        //Joint equal priorities, sort with oldest first
+        // Joint equal priorities, sort with oldest first
         if (this.getPriority() == otherTicket.getPriority()){
             return this.getDateReported().compareTo(otherTicket.getDateReported());
         }

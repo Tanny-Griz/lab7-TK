@@ -12,20 +12,20 @@ import static org.junit.Assert.*;
 public class TicketDataStoreTestExisting {
     
     @Before()
-    public void resetStaticTicketVar() throws Exception {
+    public void resetStaticTicketVar() {
         TicketCounter.setCounter(1);
     }
     
     
     @Before()
-    public void clearTicketStore() throws Exception {
+    public void clearTicketStore()  {
         TicketStore store = TicketStore.getInstance();
         store.removeAll();
     }
     
     
-    @Test(timeout=3000)
-    public void testAddTicketSorted() throws Exception {
+    @Test(timeout = 3000)
+    public void testAddTicketSorted()  {
         
         TicketStore store = TicketStore.getInstance();
         
@@ -39,7 +39,7 @@ public class TicketDataStoreTestExisting {
         store.add(testPr5);
         store.add(testPr3);
         
-        LinkedList allTickets = store.getAllTickets();
+        LinkedList<Ticket> allTickets = store.getAllTickets();
         
         String msg = "Tickets should be added in priority order, same priority sort by name";
         assertEquals(msg, allTickets.pop(), testPr1);
@@ -49,8 +49,8 @@ public class TicketDataStoreTestExisting {
     }
     
     
-    @Test(timeout=3000)
-    public void testAddTicketSortedByDate() throws Exception {
+    @Test(timeout = 3000)
+    public void testAddTicketSortedByDate() {
         
         // Tickets with joint priorities should be sorted by date
         TicketStore store = TicketStore.getInstance();
@@ -73,8 +73,8 @@ public class TicketDataStoreTestExisting {
     }
     
     
-    @Test(timeout=3000)
-    public void testPeekNextTicket() throws Exception {
+    @Test(timeout = 3000)
+    public void testPeekNextTicket() {
         
         TicketStore store = TicketStore.getInstance();
         
@@ -89,10 +89,10 @@ public class TicketDataStoreTestExisting {
         assertEquals("The most severe ticket should be returned on a call to peekNextTicket", testPr2, TicketStore.getInstance().peekNextTicket());
         
     }
-    
-    
-    @Test
-    public void testCountTicketsInQueue() throws Exception {
+
+
+    @Test(timeout = 3000)
+    public void testCountTicketsInQueue() {
         
         TicketStore store = TicketStore.getInstance();
         
@@ -107,8 +107,8 @@ public class TicketDataStoreTestExisting {
         
     }
     
-    @Test(timeout=3000)
-    public void testGetTicketByIDTicketFound() throws Exception {
+    @Test(timeout = 3000)
+    public void testGetTicketByIDTicketFound() {
         
         TicketStore store = TicketStore.getInstance();
         
@@ -128,8 +128,8 @@ public class TicketDataStoreTestExisting {
         
     }
     
-    @Test(timeout=3000)
-    public void testGetTicketByIDNotFound() throws Exception {
+    @Test(timeout = 3000)
+    public void testGetTicketByIDNotFound() {
         
         TicketStore store = TicketStore.getInstance();
         
@@ -149,8 +149,8 @@ public class TicketDataStoreTestExisting {
     }
     
     
-    @Test(timeout=3000)
-    public void testDeleteTicketByID() throws Exception {
+    @Test(timeout = 3000)
+    public void testDeleteTicketByID() {
         
         TicketStore store = TicketStore.getInstance();
         

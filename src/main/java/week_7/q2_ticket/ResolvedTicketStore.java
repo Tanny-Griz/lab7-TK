@@ -2,7 +2,6 @@ package week_7.q2_ticket;
 
 import java.util.LinkedList;
 
-
 /**
  *
  * Storage for Resolved Ticket objects.

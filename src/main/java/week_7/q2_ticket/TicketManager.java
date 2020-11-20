@@ -2,7 +2,12 @@ package week_7.q2_ticket;
 
 import java.util.LinkedList;
 
-/** The instruction are in the Lab 7 Questions.md file  */
+/**
+ * This code controls the program. It shows the menu, asks user for their choice,
+ * and carries out that action.
+ * It delegates tasks to methods in TicketUI, TicketStore and ResolvedTicketStore.
+ *
+ * The instruction are in the Lab 7 Questions.md file  */
 
 public class TicketManager {
 
@@ -10,9 +15,10 @@ public class TicketManager {
         new TicketManager().manage();
     }
 
-    // Global objects - the data stores, and the user interface
-    private TicketUI ticketUI = new TicketUI();
-    private TicketStore ticketStore = TicketStore.getInstance();
+    // Global objects - the data stores, and the user interface object
+    // you can access these from any method in this class
+    private TicketUI ticketUI = new TicketUI();  // delegate all user interaction to the ticketUI object
+    private TicketStore ticketStore = TicketStore.getInstance(); // stores all the open tickets
     
     // TODO Problem 6: create a ResolvedTicketStore object here
 
@@ -55,6 +61,8 @@ public class TicketManager {
     }
 
 
+    /* Ask for a ticket ID, request store searches for a ticket with that ID, displays the
+    * ticket if one is found, or a message if the ticket with that ID is not found. */
     protected void menuOptionSearchById() {
 
         int ticketID = ticketUI.getTicketID();
@@ -74,7 +82,7 @@ public class TicketManager {
     }
 
 
-    /* Display next ticket in the queue - the highest priority*/
+    /* Display next ticket in the queue - the highest priority */
     protected void menuOptionShowNextTicket() {
         Ticket next = ticketStore.peekNextTicket();
         ticketUI.displayTicket(next);
