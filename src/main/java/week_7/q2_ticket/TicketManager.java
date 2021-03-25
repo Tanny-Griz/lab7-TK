@@ -101,7 +101,7 @@ public class TicketManager {
 
         // TODO Problem 3: implement this method.
 
-        // Use TicketUI getSearchTerm method to ask user for search term e.g. "server" or "powerpoint"
+        // Use the TicketUI askUserQuestion method to ask user for search term e.g. "server" or "powerpoint"
         // Finish the searchByDescription method in TicketStore to get list of matching Tickets for a search term;
         //      this method should return a list of all tickets which contain the user's
         //      search term in their description
@@ -114,7 +114,7 @@ public class TicketManager {
     protected void menuOptionDeleteTicketByDescription() {
 
         // TODO Problem 7: implement this method.
-        // Ask user for search term e.g. "server". Use TicketUI to ask the question.
+        // Ask user for search term e.g. "server". Use TicketUI's askUserQuestion method to ask the question.
 
         // If there are matching tickets, use TicketUI to ask user which ticket ID to delete;
         // call the deleteTicketById(ticketID) method in this class to delete the ticket.

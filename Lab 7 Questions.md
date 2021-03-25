@@ -61,7 +61,7 @@ Run and test the program with some example support tickets.
 
 ### Problem 1: Review Design
 
-Read all of the code that is provided. Several features are already implemented. 
+Read all the code that is provided. Several features are already implemented. 
 To think about: 
 
 * What is each class for? How are different responsibilities divided between the classes? 
