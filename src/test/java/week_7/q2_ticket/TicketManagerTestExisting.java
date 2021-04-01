@@ -71,10 +71,12 @@ public class TicketManagerTestExisting {
         Ticket added = store.getTicketById(1);
         
         assertNotNull(added);
-        assertEquals(1, added.getTicketID());
-        assertEquals("Server down", added.getDescription());
-        assertEquals("Reporter", added.getReporter());
-        assertEquals("dates not same", new Date().getTime(), added.getDateReported().getTime(), 1000);
+
+        String msg = "New ticket does not contain the correct data - ensure you use user input and set the ticket ID";
+        assertEquals(msg, 1, added.getTicketID());
+        assertEquals(msg, "Server down", added.getDescription());
+        assertEquals(msg, "Reporter", added.getReporter());
+        assertEquals("Ticket reported date should be the current date", new Date().getTime(), added.getDateReported().getTime(), 2000);
     }
     
     
@@ -133,9 +135,10 @@ public class TicketManagerTestExisting {
         
         TicketManager q3 = new TicketManager();
         q3.manage();
-        
-        assertEquals(1, store.getAllTickets().size());
-        assertEquals(test, store.getTicketById(1));
+
+        String msg = "If user cancels delete operation, do not modify the ticket store or the resolved ticket list";
+        assertEquals(msg, 1, store.getAllTickets().size());
+        assertEquals(msg, test, store.getTicketById(1));
         
     }
     

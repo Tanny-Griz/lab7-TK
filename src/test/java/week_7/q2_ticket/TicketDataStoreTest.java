@@ -43,7 +43,7 @@ public class TicketDataStoreTest {
     
         TicketStore store = TicketStore.getInstance();
         
-        Ticket test1 = new Ticket("The server is on fire", 1, "1", new Date());
+        Ticket test1 = new Ticket("The server is down", 1, "1", new Date());
         Ticket test2 = new Ticket("Server keeps rebooting", 2, "2", new Date());
         Ticket test3 = new Ticket("Mouse mat stolen", 3, "3", new Date());
         Ticket test4 = new Ticket("Critical security updates", 1, "3", new Date());
@@ -88,7 +88,7 @@ public class TicketDataStoreTest {
         
         TicketStore store = TicketStore.getInstance();
         
-        Ticket test1 = new Ticket("The server is on fire", 1, "1", new Date());
+        Ticket test1 = new Ticket("The server is down", 1, "1", new Date());
         Ticket test2 = new Ticket("Server keeps rebooting", 2, "2", new Date());
         Ticket test3 = new Ticket("Mouse mat stolen", 3, "3", new Date());
         Ticket test4 = new Ticket("Critical security updates", 1, "3", new Date());
@@ -103,18 +103,18 @@ public class TicketDataStoreTest {
         LinkedList<Ticket> results = store.searchByDescription("Powerpoint");
         String msg = "Search for 'Powerpoint' should return a LinkedList of results. If no matches, return an empty list.";
         assertNotNull(msg, results);
-        assertEquals(msg, results.size(), 0);   // No results
+        assertEquals(msg, 0, results.size());   // No results
         
         // Empty string - should return empty list
         results = store.searchByDescription("");
         assertNotNull("A search for an empty string should return an empty list", results);
-        assertEquals("A search for an empty string should return an empty list", results.size(), 0);   // No results
+        assertEquals("A search for an empty string should return an empty list", 0, results.size());   // No results
     
         
         // Null string - should return empty list
         results = store.searchByDescription(null);
         assertNotNull("A search for null string should return an empty list", results);
-        assertEquals("A search for null string should return an empty list", results.size(), 0);   // No results
+        assertEquals("A search for null string should return an empty list", 0, results.size());   // No results
         
     }
     

@@ -30,7 +30,7 @@ public class TicketDataStoreTestExisting {
         TicketStore store = TicketStore.getInstance();
         
         // Test tickets with all different priorities
-        Ticket testPr1 = new Ticket("The server is on fire", 1, "reporter", new Date());
+        Ticket testPr1 = new Ticket("The server is down", 1, "reporter", new Date());
         Ticket testPr5 = new Ticket("Mouse mat stolen", 5, "reporter", new Date());
         Ticket testPr3 = new Ticket("Word needs updating", 3, "reporter", new Date());
         
@@ -42,9 +42,9 @@ public class TicketDataStoreTestExisting {
         LinkedList<Ticket> allTickets = store.getAllTickets();
         
         String msg = "Tickets should be added in priority order, same priority sort by name";
-        assertEquals(msg, allTickets.pop(), testPr1);
-        assertEquals(msg, allTickets.pop(), testPr3);
-        assertEquals(msg, allTickets.pop(), testPr5);
+        assertEquals(msg, testPr1, allTickets.pop());
+        assertEquals(msg, testPr3, allTickets.pop());
+        assertEquals(msg, testPr5, allTickets.pop());
         
     }
     
@@ -112,7 +112,7 @@ public class TicketDataStoreTestExisting {
         
         TicketStore store = TicketStore.getInstance();
         
-        Ticket test1 = new Ticket("The server is on fire", 1, "1", new Date());    //1
+        Ticket test1 = new Ticket("The server is down", 1, "1", new Date());    // 1
         Ticket test2 = new Ticket("Server keeps rebooting", 2, "2", new Date());  // 2
         Ticket test3 = new Ticket("Mouse mat stolen", 3, "3", new Date());          // 3
         Ticket test4 = new Ticket("Critical security updates", 1, "3", new Date());    //4
@@ -133,7 +133,7 @@ public class TicketDataStoreTestExisting {
         
         TicketStore store = TicketStore.getInstance();
         
-        Ticket test1 = new Ticket("The server is on fire", 1, "1", new Date());    //1
+        Ticket test1 = new Ticket("The server is down", 1, "1", new Date());    //1
         Ticket test2 = new Ticket("Server keeps rebooting", 2, "2", new Date());  // 2
         Ticket test3 = new Ticket("Mouse mat stolen", 3, "3", new Date());          // 3
         Ticket test4 = new Ticket("Critical security updates", 1, "3", new Date());    //4
@@ -154,7 +154,7 @@ public class TicketDataStoreTestExisting {
         
         TicketStore store = TicketStore.getInstance();
         
-        Ticket test1 = new Ticket("The server is on fire", 1, "1", new Date());    //1
+        Ticket test1 = new Ticket("The server is down", 1, "1", new Date());    // 1
         Ticket test2 = new Ticket("Server keeps rebooting", 2, "2", new Date());  // 2
         Ticket test3 = new Ticket("Mouse mat stolen", 3, "3", new Date());          // 3
         Ticket test4 = new Ticket("Critical security updates", 1, "3", new Date());    //4
@@ -166,7 +166,7 @@ public class TicketDataStoreTestExisting {
         LinkedList<Ticket> allTickets = store.getAllTickets();
         
         String msg = "Delete one ticket from list, list should be one ticket shorter, remaining tickets still present";
-        assertEquals(msg, allTickets.size(), 3);
+        assertEquals(msg, 3, allTickets.size());
         assertFalse(msg, allTickets.contains(test3));   // 3 has been deleted
         
         assertTrue(msg, allTickets.contains(test1));
@@ -175,15 +175,15 @@ public class TicketDataStoreTestExisting {
         
         // Delete non-existent ticket
         store.deleteTicketById(3);
-        assertEquals("After deleting non-existent ticket, list does not change", allTickets.size(), 3);   // List not changed
+        assertEquals("After deleting non-existent ticket, list does not change", 3, allTickets.size());   // List not changed
         
         store.deleteTicketById(-1);
-        assertEquals("After deleting non-existent ticket, list does not change", allTickets.size(), 3);   // List not changed
+        assertEquals("After deleting non-existent ticket, list does not change", 3, allTickets.size());   // List not changed
         
         // Delete another ticket
         
         store.deleteTicketById(1);
-        assertEquals(msg, allTickets.size(), 2);   // one less ticket
+        assertEquals(msg, 2, allTickets.size());   // one less ticket
         assertFalse(msg, allTickets.contains(test1));   // 1 has been deleted
         
         assertTrue(msg, allTickets.contains(test2));
@@ -194,7 +194,7 @@ public class TicketDataStoreTestExisting {
         
         store.deleteTicketById(2);
         store.deleteTicketById(4);
-        assertEquals(msg, allTickets.size(), 0);   // empty
+        assertEquals(msg, 0, allTickets.size());   // empty
         
         // Delete non-existent ticket
         

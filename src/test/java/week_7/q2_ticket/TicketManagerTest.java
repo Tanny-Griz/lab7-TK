@@ -68,8 +68,8 @@ public class TicketManagerTest {
         TicketManager q3 = new TicketManager();
         q3.manage();
         
-        assertEquals(0, TicketStore.getInstance().getAllTickets().size());
-        assertEquals(1, ResolvedTicketStore.getInstance().getAll().size());
+        assertEquals("There was one open ticket. After ticket delete, list should be empty", 0, TicketStore.getInstance().getAllTickets().size());
+        assertEquals("There was one open ticket. After ticket delete, resolved ticket list should have one ticket.", 1, ResolvedTicketStore.getInstance().getAll().size());
         Ticket resolvedTicket = ResolvedTicketStore.getInstance().getAll().getFirst();
         
         assertTrue(TicketUtil.sameOpenTicket(test, resolvedTicket));
@@ -191,7 +191,7 @@ public class TicketManagerTest {
         int locTest3 = out.indexOf(test3.toString());
         
         assertTrue(locTest1 >= 0 && locTest3 >= 0);
-        assertEquals(locTest2, -1);
+        assertEquals("Search result tickets are not displayed in the correct order", -1, locTest2);
         assertTrue(locTest1 < locTest3);
         
     }
