@@ -45,10 +45,10 @@ public class TicketTest {
     
         String toString = ticket.toString();
     
-        assertTrue(toString.contains("Charger broken"));
-        assertTrue(toString.contains("3"));
-        assertTrue(toString.contains("Hello Kitty"));
-        assertTrue(toString.contains(halfHourAgo.toString()));
+        assertTrue("toString method should print the ticket description", toString.contains("Charger broken"));
+        assertTrue("toString method should print the ticket priority", toString.contains("3"));
+        assertTrue("toString method should print the ticket reporter", toString.contains("Hello Kitty"));
+        assertTrue("toString method should print the ticket dateReported", toString.contains(halfHourAgo.toString()));
     
         
         try {
@@ -66,19 +66,19 @@ public class TicketTest {
             resolution.set(ticket, "Replaced charger, user happy.");
             
             toString = ticket.toString();
-            
-            assertTrue(toString.contains("Charger broken"));
-            assertTrue(toString.contains("3"));
-            assertTrue(toString.contains("Hello Kitty"));
-            assertTrue(toString.contains(halfHourAgo.toString()));
-    
+
+            assertTrue("toString method should print the ticket description", toString.contains("Charger broken"));
+            assertTrue("toString method should print the ticket priority", toString.contains("3"));
+            assertTrue("toString method should print the ticket reporter", toString.contains("Hello Kitty"));
+            assertTrue("toString method should print the ticket dateReported", toString.contains(halfHourAgo.toString()));
+
             // Plus resolved data
-            assertTrue(toString.contains("Replaced charger, user happy."));
-            assertTrue(toString.contains(now.toString()));
+            assertTrue("toString method for a resolved ticket should print the ticket resolution", toString.contains("Replaced charger, user happy."));
+            assertTrue("toString method for a resolved ticket should print the ticket dateResolved", toString.contains(now.toString()));
     
     
         } catch (NoSuchFieldException | IllegalAccessException e) {
-            fail(e.getMessage());
+            fail("Verify you have a public toString method that returns a String in the Ticket class \n" + e.getMessage());
         }
         
     }
