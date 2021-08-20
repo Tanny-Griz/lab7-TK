@@ -23,14 +23,12 @@ public class TicketDataStoreTest {
         store.removeAll();
     }
     
-    
 
-    
     @Test(timeout=3000)
     public void testSearchDescriptionEmptyStore() throws Exception {
         TicketStore store = TicketStore.getInstance();
         
-        // Any searches on an empty list should return an empty list.
+        // Any searches on an empty list should return an empty list, not a null list
         assertEquals(0, store.searchByDescription("office").size());
         assertEquals(0, store.searchByDescription("").size());
         assertEquals(0, store.searchByDescription(null).size());
@@ -38,7 +36,7 @@ public class TicketDataStoreTest {
     }
         
         
-        @Test(timeout=3000)
+    @Test(timeout=3000)
     public void testSearchDescriptionExpectedFound() throws Exception {
     
         TicketStore store = TicketStore.getInstance();
@@ -48,7 +46,7 @@ public class TicketDataStoreTest {
         Ticket test3 = new Ticket("Mouse mat stolen", 3, "3", new Date());
         Ticket test4 = new Ticket("Critical security updates", 1, "3", new Date());
     
-        //Add these tickets
+        // Add these tickets
         
         store.add(test1); store.add(test2); store.add(test3); store.add(test4);
     

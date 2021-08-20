@@ -22,7 +22,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="Java_Auto_Grader_5_6_7" target="1.8" />
-      <module name="Java_Auto_Grader_Lab_7" target="14" />
+      <module name="Java_Auto_Grader_Lab_7" target="16" />
     </bytecodeTargetLevel>
   </component>
 </project>

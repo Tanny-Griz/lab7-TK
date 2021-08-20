@@ -116,8 +116,15 @@ public class TicketManager {
         // TODO Problem 7: implement this method.
         // Ask user for search term e.g. "server". Use TicketUI's askUserQuestion method to ask the question.
 
-        // If there are matching tickets, use TicketUI to ask user which ticket ID to delete;
-        // call the deleteTicketById(ticketID) method in this class to delete the ticket.
+        // If there are matching tickets, display a list of these tickets.
+
+        // Ask the user TicketUI to ask user which ticket ID to delete, or to enter -1 to cancel.
+
+        // If the user enters a ticket ID, then call the deleteTicketById(ticketID) method
+        // in this class to delete the ticket.
+
+        // If the user doesn't wish to delete any tickets, they can enter -1 to cancel.
+        // If the user enters -1 then don't delete any tickets.
 
         // else, use TicketUI to show user 'not found' message
 

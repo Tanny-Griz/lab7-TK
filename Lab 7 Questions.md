@@ -74,6 +74,7 @@ To think about:
 ### Problem 2: Validate ticket priorities
 
 Add a check to `TicketUI.getNewTicketInfo()` method, to ensure that the priority entered for a new ticket is between 1 and 5, inclusive. 
+Use the InputUtils **intInput** method to ask for the ticket priority. 
 
 
 ### Problem 3: New menu options - Delete by Description, Search by Description
@@ -137,9 +138,12 @@ Finally, add the resolved ticket to the resolvedTicketStore.
 Implement Delete by Description. 
 
 In TicketManager's `deleteTicketByDescription` method,
-
-- Ask user for search term e.g. "server"
-- If there are matching tickets, use TicketUI to ask user which ticket ID to delete
-- call deleteTicketById(ticketID) to delete the ticket with the ID given.
-- else, use TicketUI to show user 'not found' message
  
+- Ask user for search term e.g. "server". Use TicketUI's askUserQuestion method to ask the question.
+
+- If there are matching tickets, display a list of these tickets.
+  - Ask the user TicketUI to ask user which ticket ID to delete, or to enter -1 to cancel. 
+  - If the user enters a ticket ID, then call the deleteTicketById(ticketID) method to delete the ticket.       
+  - If the user doesn't wish to delete any tickets, they can enter -1 to cancel. If the user enters -1 then don't delete any tickets. 
+         
+If there are no matching tickets, use TicketUI to show user 'not found' message
