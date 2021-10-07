@@ -10,22 +10,21 @@ import test_utils.PrintUtils;
 import java.util.Date;
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.times;
 
 public class TicketManagerTestExisting {
 
     private TicketStore store = TicketStore.getInstance();
     private ResolvedTicketStore resolvedTicketStore = ResolvedTicketStore.getInstance();
 
-    private String testDirectory = "TestTicketData";
-
     @Before
-    public void resetStaticTicketVar() throws Exception {
+    public void resetStaticTicketVar()  {
         TicketCounter.setCounter(1);
     }
 
 
     @Before
-    public void clearTicketStore() throws Exception {
+    public void clearTicketStore() {
         store.removeAll();
         resolvedTicketStore.getAll().clear();
     }
@@ -84,9 +83,12 @@ public class TicketManagerTestExisting {
             q3.manage();
             String out = PrintUtils.resetStandardOut();
 
-            assertTrue(out.contains("3"));
-            assertTrue(out.contains("Mouse missing"));
-            assertTrue(out.contains("Cubicle 123"));
+            mockInputUtil.verify( () -> InputUtils.intInput(anyString()), times(3));
+            mockInputUtil.verifyNoMoreInteractions();
+
+            assertTrue("Search by ID should show the matching Ticket priority", out.contains("3"));
+            assertTrue("Search by ID should show the matching Ticket description", out.contains("Mouse missing"));
+            assertTrue("Search by ID should show the matching Ticket reporter", out.contains("Cubicle 123"));
         }
     }
 
@@ -115,6 +117,12 @@ public class TicketManagerTestExisting {
             TicketManager q3 = new TicketManager();
             q3.manage();
 
+
+            mockInputUtil.verify( () -> InputUtils.intInput(anyString()), times(3));
+            mockInputUtil.verify( () -> InputUtils.yesNoInput(anyString()), times(1));
+
+            mockInputUtil.verifyNoMoreInteractions();
+
             String msg = "If user cancels delete operation, do not modify the ticket store or the resolved ticket list";
             assertEquals(msg, 1, store.getAllTickets().size());
             assertEquals(msg, test, store.getTicketById(1));
@@ -141,7 +149,10 @@ public class TicketManagerTestExisting {
             q3.manage();
             String out = PrintUtils.resetStandardOut();
 
-            assertTrue(out.contains(test.toString()));
+            mockInputUtil.verify( () -> InputUtils.intInput(anyString()), times(2));
+            mockInputUtil.verifyNoMoreInteractions();
+
+            assertTrue("Display the next ticket information.", out.contains(test.toString()));
         }
     }
 
@@ -168,14 +179,20 @@ public class TicketManagerTestExisting {
             q3.manage();
             String out = PrintUtils.resetStandardOut();
 
+
+            mockInputUtil.verify( () -> InputUtils.intInput(anyString()), times(2));
+            mockInputUtil.verifyNoMoreInteractions();
+
+
             // Expect test2, then test1, then test3
             int locTest1 = out.indexOf(test1.toString());
             int locTest2 = out.indexOf(test2.toString());
             int locTest3 = out.indexOf(test3.toString());
 
-            assertTrue(locTest1 >= 0 && locTest2 >= 0 && locTest3 >= 0);
-            assertTrue(locTest2 < locTest1);
-            assertTrue(locTest1 < locTest3);
+            String message = "Show tickets in priority order with priority = 1 first and priority = 5 last. The program printed this output:\n" + out;
+            assertTrue(message, locTest1 >= 0 && locTest2 >= 0 && locTest3 >= 0);
+            assertTrue(message, locTest2 < locTest1);
+            assertTrue(message, locTest1 < locTest3);
         }
     }
 
