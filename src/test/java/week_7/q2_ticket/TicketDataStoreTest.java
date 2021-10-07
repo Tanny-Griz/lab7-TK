@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -54,7 +55,7 @@ public class TicketDataStoreTest {
         
         // Search for 'server'. Should not be case sensitive, return test1 and test2
         
-        LinkedList<Ticket> results = store.searchByDescription("Server");
+        List<Ticket> results = store.searchByDescription("Server");
         String msg = "Return a LinkedList of the 2 Tickets whose description contains the search text 'Server'. If no matches, return an empty list. Your search should not be case sensitive";
         assertNotNull(msg, results);
         assertEquals(msg, results.size(), 2);   // 2 results
@@ -98,7 +99,7 @@ public class TicketDataStoreTest {
         System.out.println("This test uses the following example tickets\n" + "\n" + test1 + "\n" + test2 + "\n" + test3 + "\n" + test4);
         
         // Search for something not in the list
-        LinkedList<Ticket> results = store.searchByDescription("Powerpoint");
+        List<Ticket> results = store.searchByDescription("Powerpoint");
         String msg = "Search for 'Powerpoint' should return a LinkedList of results. If no matches, return an empty list.";
         assertNotNull(msg, results);
         assertEquals(msg, 0, results.size());   // No results

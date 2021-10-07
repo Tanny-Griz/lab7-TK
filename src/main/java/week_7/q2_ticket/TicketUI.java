@@ -27,13 +27,15 @@ public class TicketUI {
     private Map<Integer, String> options = new TreeMap<>();
     
     TicketUI() {
-        
+
         options.put(ADD_TICKET, "Add new ticket");
         options.put(SEARCH_BY_ID, "Search by ticket ID");
         options.put(DELETE_BY_TICKET_ID, "Delete by ticket ID");
         options.put(SHOW_NEXT_TICKET, "Show next ticket in ticket queue");
         options.put(SHOW_ALL_TICKETS, "Show all open tickets");
-    
+
+        // TODO Problem 3: add the new options to the options HashMap.
+
         options.put(QUIT, "Save and quit");
         
     }
@@ -66,8 +68,10 @@ public class TicketUI {
         String description = stringInput("Enter description of the problem: ");
         String reporter = stringInput("Who reported this problem? ");
         
-        // TODO Problem 2: ensure the priority is between 1 and 5. Loop until user enters a valid priority.
-        // Use the intInput method to ask for input, not positiveIntInput.
+        // TODO Problem 2: modify this section of this method to ensure the user
+        //  enters a priority between 1 and 5.
+        //  Loop until user enters a valid priority.
+        //  Use the intInput method to ask for input, not positiveIntInput.
         int priority = intInput("Enter priority of " + description);
         
         return new Ticket(description, priority, reporter, dateReported);

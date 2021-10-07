@@ -107,7 +107,7 @@ public class TicketManager {
         //      this method should return a list of all tickets which contain the user' search term in their description
         //      If there are no matching tickets, it will return an empty list.
 
-        // Use the TicketUI displayTickets method to print the list of matching tickets.
+        // Use the TicketUI displayTickets method to display the list of matching tickets.
 
         // If there are no matching tickets, use TicketUI to display this exact user message "No matching tickets".
 
@@ -121,7 +121,7 @@ public class TicketManager {
 
         //  Ask user for search term e.g. "server". Use TicketUI's askUserQuestion method to ask the question.
 
-        //  If there are no matching tickets, print this exact message "No matching tickets"
+        //  If there are no matching tickets, display this exact message "No matching tickets"
         //  and don't do anything else in this method.
 
         //  If there are matching tickets, display a list of these tickets.

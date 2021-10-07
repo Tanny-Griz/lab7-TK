@@ -1,6 +1,7 @@
 package week_7.q2_ticket;
 
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -42,7 +43,7 @@ public class ResolvedTicketStore {
         resolvedTickets.add(t);
     }
     
-    public LinkedList<Ticket> getAll() {
+    public List<Ticket> getAll() {
         return resolvedTickets;
     }
     

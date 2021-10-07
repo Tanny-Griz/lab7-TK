@@ -1,9 +1,6 @@
 package week_7.q2_ticket;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
+import java.util.*;
 
 
 /**
@@ -108,7 +105,7 @@ public class TicketStore {
      * @param description Text to search for in Ticket descriptions
      * @return a list of matching Tickets. If no matches, return an empty list.
      */
-    public LinkedList<Ticket> searchByDescription(String description) {
+    public List<Ticket> searchByDescription(String description) {
         //TODO Problem 4: Search by description. implement this method.
 
         // The Search By Description method will search your ticket list and return a new list of Tickets whose

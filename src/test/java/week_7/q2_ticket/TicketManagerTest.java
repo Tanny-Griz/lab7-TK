@@ -73,7 +73,7 @@ public class TicketManagerTest {
 
             assertEquals("There was one open ticket that was deleted. After ticket delete, list should be empty", 0, TicketStore.getInstance().getAllTickets().size());
             assertEquals("There was one open ticket that was deleted. After ticket delete, resolved ticket list should have one ticket.", 1, ResolvedTicketStore.getInstance().getAll().size());
-            Ticket resolvedTicket = ResolvedTicketStore.getInstance().getAll().getFirst();
+            Ticket resolvedTicket = ResolvedTicketStore.getInstance().getAll().get(0);
 
             assertTrue("The resolved ticket should be added to the resolved ticket list.", TicketUtil.sameOpenTicket(test, resolvedTicket));
 
@@ -221,7 +221,7 @@ public class TicketManagerTest {
 
             assertNull("After resolving a ticket, remove it from the ticket store.", store.getTicketById(3));  // expect ticket 3 to no longer be there
 
-            Ticket resolved = ResolvedTicketStore.getInstance().getAll().getFirst();
+            Ticket resolved = ResolvedTicketStore.getInstance().getAll().get(0);
 
             System.out.println(resolved);
             assertTrue("After resolving a ticket, remove it from the ticket store and add to the resolved ticket list.\n" +
@@ -346,7 +346,7 @@ public class TicketManagerTest {
             byte[] bytes = Files.readAllBytes(ticketFilePath);
             String allFileText = new String(bytes);
             
-            String msg = "TicketManager should not use any InputUtils, System.out.print calls. " +
+            String msg = "TicketManager should not use any InputUtils, or System.out.print calls. " +
                     "\nAll user input and output should be delegated to TicketUI. " +
                     "\nCall the ticketUI methods to print data, and to ask the user for input. ";
             
