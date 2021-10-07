@@ -80,7 +80,7 @@ public class TicketManagerTest {
             try {
                 Class ticketClass = Class.forName("week_7.q2_ticket.Ticket");
                 Method resolutionGetter = ticketClass.getMethod("getResolution");
-                Method resolvedDateGetter = ticketClass.getMethod("getResolvedDate");
+                Method resolvedDateGetter = ticketClass.getMethod("getDateResolved");
 
                 String resolution = (String) resolutionGetter.invoke(resolvedTicket);
                 Date resolvedDate = (Date) resolvedDateGetter.invoke(resolvedTicket);
