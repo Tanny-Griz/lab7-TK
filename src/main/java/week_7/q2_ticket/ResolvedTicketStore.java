@@ -5,7 +5,14 @@ import java.util.LinkedList;
 /**
  *
  * Storage for Resolved Ticket objects.
- * Implemented as a Singleton - there can only ever be one ResolvedTicketStore.
+ * Implemented as a "Singleton" - there can only ever be one ResolvedTicketStore.
+ * This avoids the possibility of creating multiple stores, and then
+ * If there is only one ResolvedTicketStore, then all the the tickets must be in this
+ * single store.  There's no way to have multiple stores and multiple places where tickets might be.
+ *
+ * Singleton is a design pattern, a way of doing things in code. More info:
+ * https://www.geeksforgeeks.org/singleton-class-java/
+ *
  * If you want to work with the ResolvedTicketStore, call ResolvedTicketStore.getInstance()
  *
  * You don't need to modify this class.

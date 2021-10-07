@@ -105,8 +105,10 @@ public class TicketManager {
         // Finish the searchByDescription method in TicketStore to get list of matching Tickets for a search term;
         //      this method should return a list of all tickets which contain the user's
         //      search term in their description
+
         // Use TicketUI displayTickets method to print the list of matching tickets
 
+        //  If there are no matching tickets, print this exact message "No matching tickets" .
     }
 
 
@@ -114,25 +116,32 @@ public class TicketManager {
     protected void menuOptionDeleteTicketByDescription() {
 
         // TODO Problem 7: implement this method.
-        // Ask user for search term e.g. "server". Use TicketUI's askUserQuestion method to ask the question.
 
-        // If there are matching tickets, display a list of these tickets.
+        //  Ask user for search term e.g. "server". Use TicketUI's askUserQuestion method to ask the question.
 
-        // Ask the user TicketUI to ask user which ticket ID to delete, or to enter -1 to cancel.
+        //  If there are no matching tickets, print this exact message "No matching tickets"
+        //  and don't do anything else in this method.
 
-        // If the user enters a ticket ID, then call the deleteTicketById(ticketID) method
-        // in this class to delete the ticket.
+        //  If there are matching tickets, display a list of these tickets.
 
-        // If the user doesn't wish to delete any tickets, they can enter -1 to cancel.
-        // If the user enters -1 then don't delete any tickets.
+        //  Ask the user TicketUI to ask user which ticket ID to delete, or to enter -1 to cancel.
 
-        // else, use TicketUI to show user 'not found' message
+        //  If the user enters a ticket ID, then call the deleteTicketById(ticketID) method
+        //  in this class to delete the ticket.
+
+        //  If the user doesn't wish to delete any tickets, they can enter -1 to cancel.
+        //  If the user enters -1 for the ticket ID, then don't delete any tickets.
+
+        //  else, if there are no tickets found that match the search term, use TicketUI to show user 'not found' message
 
     }
 
     
-    /* This method will be called by menuOptionDeleteTicketByDescription and menuOptionDeleteById */
+    /* Fetch a ticket with the given ID, verify user wishes to delete, gather resolution information.
+    Remove ticket from store, and add to resolved tickets. */
     protected void deleteTicketById(int ticketID) {
+
+        // This method will be called by menuOptionDeleteTicketByDescription and menuOptionDeleteById
 
         // Fetch the ticket
         Ticket toDelete = ticketStore.getTicketById(ticketID);
@@ -145,14 +154,15 @@ public class TicketManager {
             ticketUI.displayTicket(toDelete);
             if (ticketUI.areYouSure("Delete the above ticket, are you sure?")) {
 
-                /// TODO Problem 6: use TicketUI to get the resolution for this Ticket
-                // Save the resolution and the current date in this Ticket
-                // add it to the ResolvedTicketStore object.
+                /// TODO Problem 6: use TicketUI to ask the user for the resolution for this Ticket
+                //  TODO Save the resolution and the current date in this Ticket object
+                //  TODO add The ticket to the ResolvedTicketStore object.
 
-                // Delete ticket from store.
+                // Delete ticket from ticket store store.
                 ticketStore.deleteTicketById(ticketID);
 
-                // Use ticketUI to display a delete confirmation message.
+                // TODO Use ticketUI to display a delete confirmation message.
+
             } else {
                 ticketUI.userMessage("Cancelled - ticket not deleted.");
             }
