@@ -10,8 +10,11 @@ public class Ticket implements Comparable<Ticket> {
     private Date dateReported;
     private final int ticketID;    // The ID for each ticket - an instance variable. Each Ticket will have it's own ticketID variable
     
-    // TODO Problem 5: tickets need to store the resolution Date in a variable called dateResolved
-    // TODO Problem 5: and a String describing the resolution
+    // TODO Problem 5: Tickets need to store the resolution Date in a variable called dateResolved
+    // TODO Problem 5: and a String describing the resolution, in a variable called resolution.
+    //  Add two new fields (variables) here.
+    //  You do not need to modify the constructor. When a new tickets is created,
+    //  the user will not know the data resolved or the resolution.
      
     public Ticket(String desc, int p, String rep, Date date) {
         this.description = desc;
@@ -58,7 +61,7 @@ public class Ticket implements Comparable<Ticket> {
     
     public String toString(){
         
-        // TODO modify this method. If the ticket is not resolved, return the String below.
+        // TODO Problem 5. Modify this method. If the ticket is not resolved, return the String below.
         //  If the ticket is resolved, return a String that includes the same data plus the resolution, and date resolved.
         return "ID: " + this.ticketID
                 + " Description: " + this.description

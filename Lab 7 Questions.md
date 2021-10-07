@@ -86,7 +86,8 @@ Add two new options to the menu: **Delete by Description**, and **Search by Desc
 
 ### Problem 4: Implement search by description
 
-The Search By Description feature will search your ticket list and return a new list of Tickets whose descriptions contain a certain String. For example, you might want to search for all tickets with the word “server” in the description.
+The Search By Description feature will search your ticket list and display a list of Tickets whose descriptions contain a certain String. 
+For example, you might want to search for all tickets with the word “server” in the description.
 
 The search should NOT be case-sensitive.
 
@@ -94,7 +95,7 @@ You should not modify the description when you save tickets. So, the approach of
  
 Finish TicketStore.java `searchByDescription` method to search the list and return all matching tickets. 
 
-If TicketStore.java  `searchByDescription` doesn't find any matches, return an empty list.
+If TicketStore.java `searchByDescription` doesn't find any matches, return an empty list.
 If TicketStore.java `searchByDescription` is called with an empty string, or a null string, it should return an empty list.
 
 Implement Question_2_Support_Ticket_Manager.menuOptionSearchByDescription. 

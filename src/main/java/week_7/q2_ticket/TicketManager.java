@@ -20,7 +20,7 @@ public class TicketManager {
     private TicketUI ticketUI = new TicketUI();  // delegate all user interaction to the ticketUI object
     private TicketStore ticketStore = TicketStore.getInstance(); // stores all the open tickets
     
-    // TODO Problem 6: create a ResolvedTicketStore object here
+    // TODO Problem 6: create a ResolvedTicketStore object here.
 
 
     void manage() {
@@ -31,7 +31,8 @@ public class TicketManager {
 
             int userChoice = ticketUI.showMenuGetChoice();
 
-            // TODO Problem 3: add the two new options here statement
+            // TODO Problem 3: extend this if-else if-else statement to add the new
+            //  choices for the two new menu options here. Call the appropriate method for each choice.
 
             if (userChoice == TicketUI.ADD_TICKET) {
                 menuOptionAddTicket();
@@ -102,13 +103,14 @@ public class TicketManager {
         // TODO Problem 3: implement this method.
 
         // Use the TicketUI askUserQuestion method to ask user for search term e.g. "server" or "powerpoint"
-        // Finish the searchByDescription method in TicketStore to get list of matching Tickets for a search term;
-        //      this method should return a list of all tickets which contain the user's
-        //      search term in their description
+        // Finish the searchByDescription method in TicketStore.java to get a list of matching Tickets for a search term;
+        //      this method should return a list of all tickets which contain the user' search term in their description
+        //      If there are no matching tickets, it will return an empty list.
 
-        // Use TicketUI displayTickets method to print the list of matching tickets
+        // Use the TicketUI displayTickets method to print the list of matching tickets.
 
-        //  If there are no matching tickets, print this exact message "No matching tickets" .
+        // If there are no matching tickets, use TicketUI to display this exact user message "No matching tickets".
+
     }
 
 

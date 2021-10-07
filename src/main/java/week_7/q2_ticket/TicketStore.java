@@ -109,7 +109,20 @@ public class TicketStore {
      * @return a list of matching Tickets. If no matches, return an empty list.
      */
     public LinkedList<Ticket> searchByDescription(String description) {
-        //TODO Problem 4: search by description, implement this method
+        //TODO Problem 4: Search by description. implement this method.
+
+        // The Search By Description method will search your ticket list and return a new list of Tickets whose
+        // descriptions contain a certain String.
+        // For example, you might want to search for all tickets with the word “server” in the description.
+        //
+        // The search should NOT be case-sensitive.
+        //
+        // You should not modify the description when you save tickets.
+        // So, the approach of saving all descriptions in lowercase or uppercase is not an acceptable solution for this problem.
+        //
+        // If this method does not find any matching tickets, return an empty list.
+        // If this method is called with an empty string, or a null string, it should return an empty list.
+
         return null;
     }
     
