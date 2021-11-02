@@ -42,7 +42,7 @@ public class WishListTest {
     @Test(timeout=3000)
     public void testPlaceClassFields() throws NoSuchFieldException{
         
-        // does it have the right fields? Correct types? Are they private?
+        // does it have the right fields? Correct names? Correct types? Are they private?
         
         Field nameField = placeClass.getDeclaredField("name");
         assertTrue(Modifier.isPrivate(nameField.getModifiers()));
@@ -151,7 +151,7 @@ public class WishListTest {
         
         String msg = "Implement the Comparable interface. In the compareTo method, return a positive number if other place is after \n" +
                 "this place in the alphabet. Return a negative number if other place is before this place in the alphabet. Case does \n" +
-                "not matter, so 'arizona' is before 'UTAH'.  Hint: Strings have a built-in compare method. ";
+                "not matter, so 'arizona' is before 'UTAH'.  Hint: Strings have built-in methods that can be used to compare Strings to other Strings. ";
         
         assertTrue(msg, (int)compare.invoke(firstPlace, secondPlace) < 0);
         assertTrue(msg, (int)compare.invoke(secondPlace, firstPlace) > 0);
