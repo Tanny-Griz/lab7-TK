@@ -146,19 +146,19 @@ public class TicketManager {
         // This method will be called by menuOptionDeleteTicketByDescription and menuOptionDeleteById
 
         // Fetch the ticket
-        Ticket toDelete = ticketStore.getTicketById(ticketID);
+        Ticket ticketToDelete = ticketStore.getTicketById(ticketID);
 
         // Check if a ticket with this ID is in the store
-        if (toDelete == null) {
+        if (ticketToDelete == null) {
             ticketUI.userMessage("Ticket not found in the ticket store.");
         } else {
             // Display ticket info, and verify delete operation
-            ticketUI.displayTicket(toDelete);
+            ticketUI.displayTicket(ticketToDelete);
             if (ticketUI.areYouSure("Delete the above ticket, are you sure?")) {
 
                 /// TODO Problem 6: use TicketUI to ask the user for the resolution for this Ticket
                 //  TODO Save the resolution and the current date in this Ticket object
-                //  TODO add The ticket to the ResolvedTicketStore object.
+                //  TODO add the ticket ticketToDelete to the ResolvedTicketStore object.
 
                 // Delete ticket from ticket store store.
                 ticketStore.deleteTicketById(ticketID);
