@@ -36,10 +36,10 @@ public class TicketManagerTestExisting {
         try (MockedStatic<InputUtils> mockInputUtil = Mockito.mockStatic(InputUtils.class)) {
 
             mockInputUtil.when(() -> InputUtils.intInput(anyString()))
-                    .thenReturn(TicketUI.ADD_TICKET)      // select 1 from menu
+                    .thenReturn(TicketUI.ADD_TICKET_MENU_OPTION_NUMBER)      // select 1 from menu
                     // Provide valid priority, description, reporter - see next setup
                     .thenReturn(4)  // priority 4
-                    .thenReturn(TicketUI.QUIT)  // after reporter and description entered, quit program
+                    .thenReturn(TicketUI.QUIT_MENU_OPTION_NUMBER)  // after reporter and description entered, quit program
                     .thenThrow(new RuntimeException("Only ask for the input requested in the requirements."));
 
             mockInputUtil.when(() -> InputUtils.stringInput(anyString()))
@@ -73,9 +73,9 @@ public class TicketManagerTestExisting {
         try (MockedStatic<InputUtils> mockInputUtil = Mockito.mockStatic(InputUtils.class)) {
 
             mockInputUtil.when(() -> InputUtils.intInput(anyString()))
-                    .thenReturn(TicketUI.SEARCH_BY_ID)      // select 1 from menu
+                    .thenReturn(TicketUI.SEARCH_BY_ID_MENU_OPTION_NUMBER)      // select 1 from menu
                     .thenReturn(1)   // search for ID 1
-                    .thenReturn(TicketUI.QUIT)   // quit program
+                    .thenReturn(TicketUI.QUIT_MENU_OPTION_NUMBER)   // quit program
                     .thenThrow(new RuntimeException("Only ask for the input requested in the requirements."));
 
             PrintUtils.catchStandardOut();
@@ -104,9 +104,9 @@ public class TicketManagerTestExisting {
         try (MockedStatic<InputUtils> mockInputUtil = Mockito.mockStatic(InputUtils.class)) {
 
             mockInputUtil.when(() -> InputUtils.intInput(anyString()))
-                    .thenReturn(TicketUI.DELETE_BY_TICKET_ID)
+                    .thenReturn(TicketUI.DELETE_BY_TICKET_ID_MENU_OPTION_NUMBER)
                     .thenReturn(1)   // search for ID = 1
-                    .thenReturn(TicketUI.QUIT)
+                    .thenReturn(TicketUI.QUIT_MENU_OPTION_NUMBER)
                     .thenThrow(new RuntimeException("Only ask for the input requested in the requirements."));
 
             mockInputUtil.when(() -> InputUtils.yesNoInput(anyString()))
@@ -139,8 +139,8 @@ public class TicketManagerTestExisting {
         try (MockedStatic<InputUtils> mockInputUtil = Mockito.mockStatic(InputUtils.class)) {
 
             mockInputUtil.when(() -> InputUtils.intInput(anyString()))
-                    .thenReturn(TicketUI.SHOW_NEXT_TICKET)
-                    .thenReturn(TicketUI.QUIT)
+                    .thenReturn(TicketUI.SHOW_NEXT_TICKET_MENU_OPTION_NUMBER)
+                    .thenReturn(TicketUI.QUIT_MENU_OPTION_NUMBER)
                     .thenThrow(new RuntimeException("Only ask for the input requested in the requirements."));
 
 
@@ -170,8 +170,8 @@ public class TicketManagerTestExisting {
         try (MockedStatic<InputUtils> mockInputUtil = Mockito.mockStatic(InputUtils.class)) {
 
             mockInputUtil.when(() -> InputUtils.intInput(anyString()))
-                    .thenReturn(TicketUI.SHOW_ALL_TICKETS)
-                    .thenReturn(TicketUI.QUIT)
+                    .thenReturn(TicketUI.SHOW_ALL_TICKETS_MENU_OPTION_NUMBER)
+                    .thenReturn(TicketUI.QUIT_MENU_OPTION_NUMBER)
                     .thenThrow(new RuntimeException("Only ask for the input requested in the requirements."));
 
             PrintUtils.catchStandardOut();
@@ -203,7 +203,7 @@ public class TicketManagerTestExisting {
         try (MockedStatic<InputUtils> mockInputUtil = Mockito.mockStatic(InputUtils.class)) {
 
             mockInputUtil.when(() -> InputUtils.intInput(anyString()))
-                    .thenReturn(TicketUI.QUIT)
+                    .thenReturn(TicketUI.QUIT_MENU_OPTION_NUMBER)
                     .thenThrow(new RuntimeException("Only ask for the input requested in the requirements."));
 
             TicketManager q3 = new TicketManager();

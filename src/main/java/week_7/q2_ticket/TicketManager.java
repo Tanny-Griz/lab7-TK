@@ -34,17 +34,17 @@ public class TicketManager {
             // TODO Problem 3: extend this if-else if-else statement to add the new
             //  choices for the two new menu options here. Call the appropriate method for each choice.
 
-            if (userChoice == TicketUI.ADD_TICKET) {
+            if (userChoice == TicketUI.ADD_TICKET_MENU_OPTION_NUMBER) {
                 menuOptionAddTicket();
-            } else if (userChoice == TicketUI.SEARCH_BY_ID) {
+            } else if (userChoice == TicketUI.SEARCH_BY_ID_MENU_OPTION_NUMBER) {
                 menuOptionSearchById();
-            } else if (userChoice == TicketUI.DELETE_BY_TICKET_ID) {
+            } else if (userChoice == TicketUI.DELETE_BY_TICKET_ID_MENU_OPTION_NUMBER) {
                 menuOptionDeleteById();
-            } else if (userChoice == TicketUI.SHOW_NEXT_TICKET) {
+            } else if (userChoice == TicketUI.SHOW_NEXT_TICKET_MENU_OPTION_NUMBER) {
                 menuOptionShowNextTicket();
-            } else if (userChoice == TicketUI.SHOW_ALL_TICKETS) {
+            } else if (userChoice == TicketUI.SHOW_ALL_TICKETS_MENU_OPTION_NUMBER) {
                 menuOptionDisplayAllTickets();
-            } else if (userChoice == TicketUI.QUIT) {
+            } else if (userChoice == TicketUI.QUIT_MENU_OPTION_NUMBER) {
                 wantToQuit = true;
             }
         }

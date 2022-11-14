@@ -104,7 +104,7 @@ public class TicketUITest {
 
             // Run program, which should display initial menu, then quit.
             mockInputUtil.when(() -> InputUtils.intInput(anyString()))
-                    .thenReturn(TicketUI.QUIT)   // user entered value for priority
+                    .thenReturn(TicketUI.QUIT_MENU_OPTION_NUMBER)   // user entered value for priority
                     .thenThrow(new RuntimeException("Only ask for the input requested in the requirements."));
 
             PrintUtils.catchStandardOut();

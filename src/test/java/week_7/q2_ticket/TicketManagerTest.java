@@ -47,9 +47,9 @@ public class TicketManagerTest {
 
             String exampleResolution = "Replaced missing mouse with new mouse";
             mockInputUtil.when(() -> InputUtils.intInput(anyString()))
-                    .thenReturn(TicketUI.DELETE_BY_TICKET_ID)
+                    .thenReturn(TicketUI.DELETE_BY_TICKET_ID_MENU_OPTION_NUMBER)
                     .thenReturn(1)  // enter ticket ID 1
-                    .thenReturn(TicketUI.QUIT)
+                    .thenReturn(TicketUI.QUIT_MENU_OPTION_NUMBER)
                     .thenThrow(new RuntimeException("Only ask for the input requested in the requirements."));
 
             mockInputUtil.when(() -> InputUtils.stringInput(anyString()))
@@ -132,7 +132,7 @@ public class TicketManagerTest {
 
             mockInputUtil.when(() -> InputUtils.intInput(anyString()))
                     .thenReturn(option)
-                    .thenReturn(TicketUI.QUIT)  // end program
+                    .thenReturn(TicketUI.QUIT_MENU_OPTION_NUMBER)  // end program
                     .thenThrow(new RuntimeException("Only ask for the input requested in the requirements."));
 
             mockInputUtil.when(() -> InputUtils.stringInput(anyString()))
@@ -195,7 +195,7 @@ public class TicketManagerTest {
             mockInputUtil.when(() -> InputUtils.intInput(anyString()))
                     .thenReturn(option)
                     .thenReturn(3)  // Ticket with ID 3.
-                    .thenReturn(TicketUI.QUIT)  // end program
+                    .thenReturn(TicketUI.QUIT_MENU_OPTION_NUMBER)  // end program
                     .thenThrow(new RuntimeException("Only ask for the input requested in the requirements."));
 
             mockInputUtil.when(() -> InputUtils.stringInput(anyString()))
@@ -254,7 +254,7 @@ public class TicketManagerTest {
             mockInputUtil.when(() -> InputUtils.intInput(anyString()))
                     .thenReturn(option)
                     .thenReturn(-1)  // user enters -1 on list of matching tickets to cancel
-                    .thenReturn(TicketUI.QUIT)
+                    .thenReturn(TicketUI.QUIT_MENU_OPTION_NUMBER)
                     .thenThrow(new RuntimeException("Only ask for the input requested in the requirements."));
 
             mockInputUtil.when(() -> InputUtils.stringInput(anyString()))
@@ -301,7 +301,7 @@ public class TicketManagerTest {
 
             mockInputUtil.when(() -> InputUtils.intInput(anyString()))
                     .thenReturn(option)
-                    .thenReturn(TicketUI.QUIT)
+                    .thenReturn(TicketUI.QUIT_MENU_OPTION_NUMBER)
                     .thenThrow(new RuntimeException("Only ask for the input requested in the requirements."));
 
             mockInputUtil.when(() -> InputUtils.stringInput(anyString()))
