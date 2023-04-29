@@ -81,8 +81,10 @@ Use the InputUtils **intInput** method to ask for the ticket priority.
 ### Problem 3: New menu options - Delete by Description, Search by Description
 
 Add two new options to the menu: **Delete by Description**, and **Search by Description**. 
- Create two new static constants called `DELETE_BY_DESCRIPTION_MENU_OPTION_NUMBER` and `SEARCH_BY_DESCRIPTION_MENU_OPTION_NUMBER`. 
+ Create two new static int constants called `DELETE_BY_DESCRIPTION_MENU_OPTION_NUMBER` and `SEARCH_BY_DESCRIPTION_MENU_OPTION_NUMBER` to store the menu option numbers.
 Which file will you create these constants in? Where are the other constants used in the menu defined?
+
+All the int constants and the corresponding String descriptions are stored in a Map in TicketUI. Add your new constants and a description to this map.
 
 Next, modify the TicketManager's `manage` method; add more conditions in the if-else if-else statement to add the new choices for the two new menu options here. 
 Call the appropriate method for each choice.
