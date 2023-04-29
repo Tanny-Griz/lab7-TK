@@ -85,8 +85,8 @@ public class TicketUITest {
 
         Class ui = TicketUI.class;
         try {
-            Field dbd = ui.getDeclaredField("DELETE_BY_DESCRIPTION");
-            Field sbd = ui.getDeclaredField("SEARCH_BY_DESCRIPTION");
+            Field dbd = ui.getDeclaredField("DELETE_BY_DESCRIPTION_MENU_OPTION_NUMBER");
+            Field sbd = ui.getDeclaredField("SEARCH_BY_DESCRIPTION_MENU_OPTION_NUMBER");
 
             assertTrue("Constants added should be static", Modifier.isStatic(dbd.getModifiers()));
             assertTrue("Constants added should be static", Modifier.isStatic(sbd.getModifiers()));

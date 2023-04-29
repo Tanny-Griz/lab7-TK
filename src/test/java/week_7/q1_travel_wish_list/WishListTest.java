@@ -115,7 +115,7 @@ public class WishListTest {
     
         Constructor c = ensureCorrectConstructor();
         
-        Place p = (Place) c.newInstance("example", "because");
+        Place p = (Place) c.newInstance("Arizona", "To see the Grand Canyon");
         
         Field name = placeClass.getDeclaredField("name");
         name.setAccessible(true);
@@ -126,9 +126,9 @@ public class WishListTest {
         Field created = placeClass.getDeclaredField("created");
         created.setAccessible(true);
     
-        assertEquals("Constructor should set the name field.", "example", name.get(p));
+        assertEquals("Constructor should set the name field.", "Arizona", name.get(p));
     
-        assertEquals("Constructor should set the reason field.", "because", reason.get(p));
+        assertEquals("Constructor should set the reason field.", "To see the Grand Canyon", reason.get(p));
     
         assertEquals("Constructor should create the date for the created field.", new Date().toString(), created.get(p).toString());
     }
@@ -172,12 +172,12 @@ public class WishListTest {
     
         Date now = new Date();
         
-        Place firstPlace = (Place) c.newInstance("arizona", "because");
+        Place firstPlace = (Place) c.newInstance("Arizona", "To see the Grand Canyon");
         
         Method toString = placeClass.getMethod("toString");
         String outString = (String) toString.invoke(firstPlace);
         
-        String expected = String.format("Place to visit: %s. Reason: %s. Date created: %s", "arizona", "because", now.toString());
+        String expected = String.format("Place to visit: %s. Reason: %s. Date created: %s", "Arizona", "To see the Grand Canyon", now.toString());
         assertEquals("toString should return a string in the exact format requested.", expected, outString);
     }
     
