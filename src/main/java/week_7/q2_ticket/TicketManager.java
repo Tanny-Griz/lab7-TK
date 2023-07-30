@@ -128,7 +128,7 @@ public class TicketManager {
 
         //  Ask the user TicketUI to ask user which ticket ID to delete, or to enter -1 to cancel.
 
-        //  If the user enters a ticket ID, then call the deleteTicketById(ticketID) method
+        //  If the user enters a ticket ID, then call the TicketManager deleteTicketById(ticketID) method
         //  in this class to delete the ticket.
 
         //  If the user doesn't wish to delete any tickets, they can enter -1 to cancel.
