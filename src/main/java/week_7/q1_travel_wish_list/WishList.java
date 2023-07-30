@@ -21,37 +21,36 @@ public class WishList {
         do {
             
             String name = stringInput("Enter the name of the place");
-            String reason = stringInput("Why do you want to visit " + name + "?");
+            String reason = stringInput("Why would you like to visit " + name + "?");
             
             // TODO use the newPlace method to
             //  create a new Place object with the name, and reason
-            // The Place object's constructor should calculate the date created and store that.
-            
+            //   Remember that the Place object's constructor will calculate the date created and store that as part of the Place object.
+
             // TODO add the new Place object, returned by newPlace, to the wishList
             
         } while (yesNoInput("More places to add to your wish list?"));
         
-        // TODO Call the displayPlacesInNameOrder method to print
-        //  a list of the places, sorted by name
+        // TODO Call the displayPlaces method to print a list of the places
         
     }
     
     public static Place newPlace(String placeName, String reason) {
         
         // TODO create a new Place object with the given placeName and reason
-        
+        //   Remember that the Place object's constructor will calculate the date created and store that.
+
+
         return null;  // TODO change this to return the new Place
     }
     
     
-    public static void displayPlacesInNameOrder(List<Place> places) {
-        
+    public static void displayPlaces(List<Place> places) {
+
         // TODO
-        //  Sort the List of Place objects, places should be sorted in name order.
-        //  the sort should be case insensitive. 'hawaii' should be before 'Rome'.
-        //  Print each place, one per line
+        //  Print each Place, one per line.
         //  Don't print anything else
-        //  Make sure you've made Place Comparable, and it has a toString method
+        //  Make sure the Place class has a toString method
         
     }
     

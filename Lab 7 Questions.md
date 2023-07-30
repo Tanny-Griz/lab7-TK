@@ -5,9 +5,9 @@
 ### Problem 1: Travel Wish List
  
 A place object will need three private fields:
- *  A String name (for example, Hawaii)
- *  A String reason (a reason for visiting, for example, to go surfing)
- *  A Date created (when the Place object was created).
+ *  A String `name` (for example, Hawaii)
+ *  A String `reason` (a reason for visiting, for example, to go surfing)
+ *  A Date `dateCreated` (when the Place object was created).
 
 Date object information, example: 
 https://github.com/claraj/Java2545Examples/blob/master/src/main/java/week7_first_classes/DateObjects.java
@@ -18,13 +18,6 @@ IntelliJ can generate these methods for you.
 In this class, you'll need a constructor that takes two arguments, the name, and the reason.
 
 The constructor should instantiate a new Date, and use that to set the Date created.
-
-Place objects need to be sorted by name.
-You'll need to make Place implement Comparable to other Place objects. So, one Place can
-be compared to another Place. This will allow a List of Place objects
-to be sorted.
-
-Add the `compareTo()` method that Comparable requires.
 
 Place objects need to be printed. Create a `toString` method
 that returns a String with all the information about this place.
@@ -150,7 +143,7 @@ In TicketManager's `deleteTicketByDescription` method,
 
 - If there are matching tickets, display a list of these tickets.
   - Ask the user TicketUI to ask user which ticket ID to delete, or to enter -1 to cancel. 
-  - If the user enters a ticket ID, then call the deleteTicketById(ticketID) method to delete the ticket.       
+  - If the user enters a ticket ID, then call the TicketManager `deleteTicketById(ticketID)` method to delete the ticket.       
   - If the user doesn't wish to delete any tickets, they can enter -1 to cancel. If the user enters -1 then don't delete any tickets. 
          
 If there are no matching tickets, use TicketUI to show the user a 'not found' message

@@ -1,37 +1,31 @@
 package week_7.q1_travel_wish_list;
 
+import java.util.Date;
+
 /**
  * Represents one place in a wish list of places to travel to.
  */
 
-public class Place /* TODO make Place objects Comparable, so they can be sorted */  {
+public class Place {
     
     /*
     *
     * TODO finish this class.
     *
     * A place object will need three private fields, with these names:
-    *    name: A String for the place name (for example, Hawaii)
-    *    reason: A String reason (a reason for visiting, for example, to go surfing)
-    *    created: A Date created (when the Place object was created.
+    *    name: A String for the place name (for example, "Hawaii")
+    *    reason: A String reason (a reason for visiting, for example, "to go surfing")
+    *    dateCreated: A Date created (when the Place object was created).
     *
     * Date objects: https://github.com/claraj/Java2545Examples/blob/master/src/main/java/week7_first_classes/DateObjects.java
     *
     * Create get and set methods for all three fields. These will have names like
-    * getName, setName, getReason, setReason, getCreated, setCreated.
+    * getName, setName, getReason, setReason, getDateCreated, setDateCreated.
     * Remember that IntelliJ can generate these methods for you.
     *
     * In this class, you'll need a *public* constructor that takes two arguments,
     * the name, and the reason.
-    * The constructor can create and set the Date created.
-    *
-    * Place objects need to be sorted by name.
-    * You'll need to make Place implement Comparable, so one Place can
-    * be compared to another Place. This will allow a List of Place objects
-    * to be sorted.
-    *
-    * Add the compareTo() method that Comparable requires.
-    *
+    * The constructor can create and set the Date field, dateCreated.
     *
     * Place objects need to be printed. Create a toString method
     * that returns a String with all of the information about this place.
@@ -54,10 +48,10 @@ public class Place /* TODO make Place objects Comparable, so they can be sorted 
     // TODO create a public constructor with required arguments
     // so public Place( ...arguments here... )  {  ... code here ... }
     
-    // TODO create get and set methods for the private fields
+    // TODO create get and set methods for the private fields.
+    //  You will probably not use these methods in your program but the tests will check that they exist.
     
     // TODO create toString method that returns a human-readable String with all the information about a Place
-    
-    // TODO create compareTo method so that Place objects can be sorted.
-    
+
+
 }
