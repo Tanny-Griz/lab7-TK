@@ -59,6 +59,7 @@ public class TicketUI {
      * TicketManager, since it uses the value of those constants. Our code is easier to modify.
      *
      * The values are a text description of that menu item. */
+
     TicketUI() {
         options.put(ADD_TICKET_MENU_OPTION_NUMBER, "Add new ticket");
         options.put(SEARCH_BY_ID_MENU_OPTION_NUMBER, "Search by ticket ID");

@@ -121,11 +121,11 @@ public class TicketManagerTest {
 
 
         try {
-            Field searchByDescription = TicketUI.class.getDeclaredField("DELETE_BY_DESCRIPTION");
+            Field searchByDescription = TicketUI.class.getDeclaredField("DELETE_BY_DESCRIPTION_MENU_OPTION_NUMBER");
             searchByDescription.setAccessible(true);
             option = (int) searchByDescription.get(null);
         } catch (NoSuchFieldException | IllegalAccessException | ClassCastException e) {
-            fail("Create a static DELETE_BY_TICKET_DESCRIPTION variable in TicketUI and use it to create and show the menu. " + e);
+            fail("Create a static DELETE_BY_DESCRIPTION_MENU_OPTION_NUMBER variable in TicketUI and use it to create and show the menu. " + e);
         }
 
         try (MockedStatic<InputUtils> mockInputUtil = mockStatic(InputUtils.class)) {
@@ -183,11 +183,11 @@ public class TicketManagerTest {
         int option = 0;
 
         try {
-            Field searchByDescription = TicketUI.class.getDeclaredField("DELETE_BY_DESCRIPTION");
+            Field searchByDescription = TicketUI.class.getDeclaredField("DELETE_BY_DESCRIPTION_MENU_OPTION_NUMBER");
             searchByDescription.setAccessible(true);
             option = (int) searchByDescription.get(null);
         } catch (NoSuchFieldException | IllegalAccessException | ClassCastException e) {
-            fail("Create a static DELETE_BY_TICKET_DESCRIPTION variable in TicketUI and use it to create and show the menu. " + e);
+            fail("Create a static DELETE_BY_DESCRIPTION_MENU_OPTION_NUMBER variable in TicketUI and use it to create and show the menu. " + e);
         }
 
         try (MockedStatic<InputUtils> mockInputUtil = mockStatic(InputUtils.class)) {
@@ -242,11 +242,11 @@ public class TicketManagerTest {
         
         int option = 0;
         try {
-            Field searchByDescription = TicketUI.class.getDeclaredField("DELETE_BY_DESCRIPTION");
+            Field searchByDescription = TicketUI.class.getDeclaredField("DELETE_BY_DESCRIPTION_MENU_OPTION_NUMBER");
             searchByDescription.setAccessible(true);
             option = (int) searchByDescription.get(null);
         } catch (NoSuchFieldException|IllegalAccessException|ClassCastException e) {
-            fail("Create a static DELETE_BY_DESCRIPTION variable in TicketUI and use it to create and show the menu. " + e);
+            fail("Create a static DELETE_BY_DESCRIPTION_MENU_OPTION_NUMBER variable in TicketUI and use it to create and show the menu. " + e);
         }
 
         try (MockedStatic<InputUtils> mockInputUtil = mockStatic(InputUtils.class)) {
@@ -289,11 +289,11 @@ public class TicketManagerTest {
         
         int option = 0;
         try {
-            Field searchByDescription = TicketUI.class.getDeclaredField("SEARCH_BY_DESCRIPTION");
+            Field searchByDescription = TicketUI.class.getDeclaredField("SEARCH_BY_DESCRIPTION_MENU_OPTION_NUMBER");
             searchByDescription.setAccessible(true);
             option = (int) searchByDescription.get(null);
         } catch (NoSuchFieldException|IllegalAccessException|ClassCastException e) {
-            fail("Create a static SEARCH_BY_DESCRIPTION variable in TicketUI and use it to create and show the menu. " + e);
+            fail("Create a static SEARCH_BY_DESCRIPTION_MENU_OPTION_NUMBER variable in TicketUI and use it to create and show the menu. " + e);
         }
         
 
