@@ -59,6 +59,7 @@ public class Ticket implements Comparable<Ticket> {
         this.dateReported = dateReported;
     }
     
+    @Override
     public String toString(){
         
         // TODO Problem 5. Modify this method. If the ticket is not resolved, return the String below.
