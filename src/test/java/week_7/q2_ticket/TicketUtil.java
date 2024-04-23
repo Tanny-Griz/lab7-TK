@@ -5,9 +5,9 @@ package week_7.q2_ticket;
  */
 public class TicketUtil {
     
-    static boolean sameOpenTicket(Ticket t1, Ticket t2) throws Exception {
+    static boolean sameOpenTicket(Ticket t1, Ticket t2) {
         // Could override .equals in the Ticket class, but not guaranteed that student will implement extra fields
-        // Overriding .equals requires hashcode to be overriden too, and that's out of scope for this problem
+        // Overriding .equals requires hashcode to be overridden too, and that's out of scope for this problem
         
         // Dates have to be within one second of each other.
         

@@ -153,7 +153,7 @@ public class WishListTest {
     @Test(timeout=3000)
     public void newPlace() throws Exception{
     
-        Place place = WishList.newPlace("Arizona", "To visit the Grand Canyon");
+        Place place = WishList.createNewPlace("Arizona", "To visit the Grand Canyon");
 
         assertNotNull("Complete the newPlace method in Wishlist.java to create and return a new Place object", place);
     

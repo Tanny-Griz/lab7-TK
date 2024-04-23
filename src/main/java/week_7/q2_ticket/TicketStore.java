@@ -74,9 +74,9 @@ public class TicketStore {
      * @param id The ticket ID
      * @return The ticket with this ID, if found; null otherwise */
     public Ticket getTicketById(int id) {
-        for (Ticket t : ticketQueue) {
-            if (t.getTicketID() == id) {
-                return t;
+        for (Ticket ticket: ticketQueue) {
+            if (ticket.getTicketID() == id) {
+                return ticket;
             }
         }
         
@@ -88,7 +88,7 @@ public class TicketStore {
      *  @return true if a ticket was found and deleted, false if a ticket with this ID is not in the queue */
     public boolean deleteTicketById(int deleteID) {
         
-        //Loop over all tickets. Delete the one with this ticket ID
+        // Loop over all tickets. Delete the one with this ticket ID
         for (Ticket ticket : ticketQueue) {
             if (ticket.getTicketID() == deleteID) {
                 ticketQueue.remove(ticket);

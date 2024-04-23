@@ -23,11 +23,11 @@ public class WishList {
             String name = stringInput("Enter the name of the place");
             String reason = stringInput("Why would you like to visit " + name + "?");
             
-            // TODO use the newPlace method to
+            // TODO use the createNewPlace method to
             //  create a new Place object with the name, and reason
             //   Remember that the Place object's constructor will calculate the date created and store that as part of the Place object.
 
-            // TODO add the new Place object, returned by newPlace, to the wishList
+            // TODO add the new Place object, returned by createNewPlace, to the wishList
             
         } while (yesNoInput("More places to add to your wish list?"));
         
@@ -35,17 +35,17 @@ public class WishList {
         
     }
     
-    public static Place newPlace(String placeName, String reason) {
+    public static Place createNewPlace(String placeName, String reason) {
         
         // TODO create a new Place object with the given placeName and reason
         //   Remember that the Place object's constructor will calculate the date created and store that.
 
 
-        return null;  // TODO change this to return the new Place
+        return null;  // TODO change this to return the new Place object
     }
     
     
-    public static void displayPlaces(List<Place> places) {
+    public static void displayPlaces(List<Place> wishlist) {
 
         // TODO
         //  Print each Place, one per line.

@@ -16,8 +16,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Java_Auto_Grader_7" />
         <module name="Java_Auto_Grader_5_6_7" />
-        <module name="Java_Auto_Grader_Lab_7" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">

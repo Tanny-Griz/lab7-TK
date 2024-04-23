@@ -14,7 +14,6 @@ public class TicketUI {
     //  Make sure you use int values that haven't been used for other menu options.
     
     static final int ADD_TICKET_MENU_OPTION_NUMBER = 1;
-    
     static final int SEARCH_BY_ID_MENU_OPTION_NUMBER = 2;
     static final int DELETE_BY_TICKET_ID_MENU_OPTION_NUMBER = 3;
     static final int SHOW_NEXT_TICKET_MENU_OPTION_NUMBER = 4;

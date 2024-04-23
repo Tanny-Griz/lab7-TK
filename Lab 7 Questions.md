@@ -4,7 +4,9 @@
  
 ### Problem 1: Travel Wish List
  
-A place object will need three private fields:
+Finish the Place class. 
+
+A Place object will need three private fields:
  *  A String `name` (for example, Hawaii)
  *  A String `reason` (a reason for visiting, for example, to go surfing)
  *  A Date `dateCreated` (when the Place object was created).
@@ -32,6 +34,9 @@ the String should be in this EXACT form, but with the actual date it was created
 
 The Date information will be whatever date's toString method returns. You don't need to do any
 date formatting.
+
+Follow the instructions in WishList.java to complete the program. 
+A user will be able to create a list of Place objects, and view all the Place objects in their wishlist. 
 
  
 ## Question 2 Support Ticket Manager  
