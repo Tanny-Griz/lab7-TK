@@ -8,12 +8,12 @@ public class Ticket implements Comparable<Ticket> {
     private String reporter;     // Stores person or department who reported problem
     private String description;
     private Date dateReported;
-    private final int ticketID;    // The ID for each ticket - an instance variable. Each Ticket will have it's own ticketID variable
+    private final int ticketID;    // The ID for each ticket, which will be unique for each ticket, and can't be changed once it is set.
     
     // TODO Problem 5: Tickets need to store the resolution Date in a variable called dateResolved
     // TODO Problem 5: and a String describing the resolution, in a variable called resolution.
     //  Add two new fields (variables) here.
-    //  You do not need to modify the constructor. When a new tickets is created,
+    //  You do not need to modify the constructor. When a new ticket is created,
     //  the user will not know the data resolved or the resolution.
      
     public Ticket(String desc, int p, String rep, Date date) {
@@ -28,6 +28,8 @@ public class Ticket implements Comparable<Ticket> {
     public int getTicketID() {
         return ticketID;
     }
+
+    // Note there is no setTicketID method to prevent changing an ID once it is set.
     
     protected int getPriority() {
         return priority;
@@ -37,7 +39,9 @@ public class Ticket implements Comparable<Ticket> {
         this.priority = priority;
     }
     
-    public String getDescription() { return description; }
+    public String getDescription() {
+        return description;
+    }
     
     public void setDescription(String description) {
         this.description = description;
@@ -74,13 +78,13 @@ public class Ticket implements Comparable<Ticket> {
     @Override
     public int compareTo(Ticket otherTicket) {
 
-        // Joint equal priorities, sort with oldest first
+        // Joint equal priorities, sort with the oldest first
         if (this.getPriority() == otherTicket.getPriority()){
             return this.getDateReported().compareTo(otherTicket.getDateReported());
         }
 
         else {
-            // Sort with smallest priority number at the start
+            // Sort with the smallest priority number at the start
             return this.getPriority() - otherTicket.getPriority();
         }
     }
