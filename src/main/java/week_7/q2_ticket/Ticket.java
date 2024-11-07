@@ -16,11 +16,11 @@ public class Ticket implements Comparable<Ticket> {
     //  You do not need to modify the constructor. When a new ticket is created,
     //  the user will not know the data resolved or the resolution.
      
-    public Ticket(String desc, int p, String rep, Date date) {
-        this.description = desc;
-        this.priority = p;
-        this.reporter = rep;
-        this.dateReported = date;
+    public Ticket(String description, int priority, String reporter, Date dateReported) {
+        this.description = description;
+        this.priority = priority;
+        this.reporter = reporter;
+        this.dateReported = dateReported;
         this.ticketID = TicketCounter.getNextCounterValue();
     }
     
@@ -77,6 +77,20 @@ public class Ticket implements Comparable<Ticket> {
 
     @Override
     public int compareTo(Ticket otherTicket) {
+
+        // This method is needed to be able to sort a list of Ticket objects
+        // Strings, int, double values have an expected sort order,
+        // but there's no inherent order to Ticket objects.
+        // so, we have to write a method that can tell if one Ticket should be
+        // sorted before, or after another ticket.
+        // This method is called for a Ticket object, passing in another Ticket object as an argument
+        // The method needs to indicate if this Ticket should be before or after the other Ticket object.
+        // This method
+        //    returns 0 if two tickets are equal in sort order.
+        //    a negative number if this ticket should be before otherTicket in a sorted list.
+        //    a positive number if this ticket should be after otherTicket in a sorted list.
+        // We never call this method directly, but the Collections.sort method calls
+        // this method behind the scenes when we ask it to sort a list of Ticket objects.
 
         // Joint equal priorities, sort with the oldest first
         if (this.getPriority() == otherTicket.getPriority()){

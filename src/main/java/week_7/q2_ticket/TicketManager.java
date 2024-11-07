@@ -100,7 +100,7 @@ public class TicketManager {
     /* Ask user for a search term, display all tickets matching that term */
     protected void menuOptionSearchByDescription() {
 
-        // TODO Problem 3: implement this method.
+        // TODO Problem 4: implement this method.
 
         // Use the TicketUI askUserQuestion method to ask user for search term e.g. "server" or "powerpoint"
         // Finish the searchByDescription method in TicketStore.java to get a list of matching Tickets for a search term;

@@ -7,8 +7,7 @@ import java.util.*;
  * A data structure to store Tickets in memory as the program runs
  * Stores tickets in priority order, so tickets with priority 5 are at the start
  * If more than one ticket with same priority, oldest tickets are before newer tickets
- * Supports add, delete, search operations on the list of Tickets
- *
+ * Supports add, delete, search operations on the list of Tickets.
  *
  * Implemented as a Singleton - there can only ever be one TicketStore.
  * If you want to work with the TicketStore, call TicketStore.getInstance()
@@ -18,12 +17,12 @@ import java.util.*;
 
 public class TicketStore {
     
-    private LinkedList<Ticket> ticketQueue;
+    private LinkedList<Ticket> ticketList;
     
     private static TicketStore instance;
     
     private TicketStore() {
-        ticketQueue = new LinkedList<>();
+        ticketList = new LinkedList<>();
     }
     
     public static TicketStore getInstance() {
@@ -33,40 +32,40 @@ public class TicketStore {
         return instance;
     }
     
-    /** Add all of the tickets in a list to the Ticket Queue, in priority order.
+    /** Add all the tickets in a list to the Ticket Queue, in priority order.
      * @param tickets a list of tickets. */
     public void addAll(LinkedList<Ticket> tickets) {
-        ticketQueue.addAll(tickets);
-        Collections.sort(ticketQueue);
+        ticketList.addAll(tickets);
+        Collections.sort(ticketList);
     }
     
     
     /** Add ticket, and then sort list to keep the highest-priority at the top of the queue.
      * @param newTicket the new Ticket to add. */
     public void add(Ticket newTicket) {
-        ticketQueue.add(newTicket);
-        Collections.sort(ticketQueue);
+        ticketList.add(newTicket);
+        Collections.sort(ticketList);
     }
     
     
     /** Returns all tickets in the queue.
      * @return All the tickets.  */
     public LinkedList<Ticket> getAllTickets() {
-        return ticketQueue;
+        return ticketList;
     }
     
     
     /** Returns, but does not remove, the tickets from the top of the TicketQueue
      * @return the ticket at the top of the queue */
     public Ticket peekNextTicket() {
-        return ticketQueue.peek();
+        return ticketList.peek();
     }
     
     
     /** How many currently open tickets in the list?
      * @return the number of open tickets */
     public int ticketsInQueue() {
-        return ticketQueue.size();
+        return ticketList.size();
     }
 
     
@@ -74,7 +73,7 @@ public class TicketStore {
      * @param id The ticket ID
      * @return The ticket with this ID, if found; null otherwise */
     public Ticket getTicketById(int id) {
-        for (Ticket ticket: ticketQueue) {
+        for (Ticket ticket: ticketList) {
             if (ticket.getTicketID() == id) {
                 return ticket;
             }
@@ -88,10 +87,10 @@ public class TicketStore {
      *  @return true if a ticket was found and deleted, false if a ticket with this ID is not in the queue */
     public boolean deleteTicketById(int deleteID) {
         
-        // Loop over all tickets. Delete the one with this ticket ID
-        for (Ticket ticket : ticketQueue) {
+        // Loop over all tickets. Delete the first one found with this ticket ID
+        for (Ticket ticket : ticketList) {
             if (ticket.getTicketID() == deleteID) {
-                ticketQueue.remove(ticket);
+                ticketList.remove(ticket);
                 return true;
             }
         }
@@ -101,14 +100,14 @@ public class TicketStore {
     }
 
     /** Create a list of tickets, with a description containing
-     * the given String. The search is not case sensitive.
-     * @param description Text to search for in Ticket descriptions
+     * the given String. The search is not case-sensitive.
+     * @param searchDescription Text to search for in Ticket descriptions
      * @return a list of matching Tickets. If no matches, return an empty list.
      */
-    public List<Ticket> searchByDescription(String description) {
+    public List<Ticket> searchByDescription(String searchDescription) {
         //TODO Problem 4: Search by description. implement this method.
 
-        // The Search By Description method will search your ticket list and return a new list of Tickets whose
+        // This method should search the ticketList and return a new list of Tickets whose
         // descriptions contain a certain String.
         // For example, you might want to search for all tickets with the word “server” in the description.
         //
@@ -126,7 +125,7 @@ public class TicketStore {
     
     /** Remove all tickets from the Ticket queue */
     public void removeAll() {
-        ticketQueue.clear();
+        ticketList.clear();
     }
 
 }
