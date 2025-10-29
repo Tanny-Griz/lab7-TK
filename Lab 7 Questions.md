@@ -11,11 +11,10 @@ A Place object will need three private fields:
  *  A String `reason` (a reason for visiting, for example, to go surfing)
  *  A Date `dateCreated` (when the Place object was created).
 
-Date object information, example: 
-https://github.com/claraj/Java2545Examples/blob/master/src/main/java/week7_first_classes/DateObjects.java
+Date object information, example:
+https://gist.github.com/claraj/29d5e65e63ab4861a573ef6f1b030d36
 
-Create get and set methods for all three fields. Remember that
-IntelliJ can generate these methods for you.
+Create get and set methods for all three fields. Remember that IntelliJ can generate these methods for you.
 
 In this class, you'll need a constructor that takes two arguments, the name, and the reason.
 
@@ -93,7 +92,7 @@ Call the appropriate method for each choice.
 The Search By Description feature will search your ticket list and display a list of Tickets whose descriptions contain a certain String. 
 For example, you might want to search for all tickets with the word “server” in the description.
 
-The search should NOT be case-sensitive.
+The search should **NOT** be case-sensitive.
 
 You should not modify the description when you save tickets. So, the approach of saving all descriptions in lowercase or uppercase is not an acceptable solution for this problem.
  
