@@ -9,6 +9,10 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: read
+  checks: write   # <-- needed to create the "Test Report" check run
+
 jobs:
   build:
 
