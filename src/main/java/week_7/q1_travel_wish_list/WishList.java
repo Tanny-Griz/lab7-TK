@@ -16,7 +16,7 @@ public class WishList {
     public static void main(String[] args) {
 
         // TODO modify this line so the wishList List stores Place objects
-        List wishList = new ArrayList<>();
+        List<Place> wishList = new ArrayList<>();
         
         do {
             
@@ -27,11 +27,17 @@ public class WishList {
             //  create a new Place object with the name, and reason
             //   Remember that the Place object's constructor will calculate the date created and store that as part of the Place object.
 
+            Place newPlace = createNewPlace(name, reason);
+
             // TODO add the new Place object, returned by createNewPlace, to the wishList
-            
+
+            wishList.add(newPlace);
+
         } while (yesNoInput("More places to add to your wish list?"));
         
         // TODO Call the displayPlaces method to print a list of the places
+
+        displayPlaces(wishList);
         
     }
     
@@ -40,8 +46,7 @@ public class WishList {
         // TODO create a new Place object with the given placeName and reason
         //   Remember that the Place object's constructor will calculate the date created and store that.
 
-
-        return null;  // TODO change this to return the new Place object
+        return new Place(placeName, reason);  // TODO change this to return the new Place object
     }
     
     
@@ -51,7 +56,10 @@ public class WishList {
         //  Print each Place, one per line.
         //  Don't print anything else
         //  Make sure the Place class has a toString method
-        
+
+        for (Place place : wishlist) {
+            System.out.println(place);
+        }
     }
     
 }

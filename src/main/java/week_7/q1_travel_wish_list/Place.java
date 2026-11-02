@@ -44,14 +44,54 @@ public class Place {
     * */
     
     // TODO create the private fields
+
+    private String name;
+    private String reason;
+    private Date dateCreated;
     
     // TODO create a public constructor with required arguments
     // so public Place( ...arguments here... )  {  ... code here ... }
+
+    public Place(String name, String reason) {
+        this.name = name;
+        this.reason = reason;
+        this.dateCreated = new Date();
+    }
     
     // TODO create get and set methods for the private fields.
     //  You will probably not use these methods in your program but the tests will check that they exist.
-    
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+
     // TODO create toString method that returns a human-readable String with all the information about a Place
 
+    @Override
+    public String toString() {
+        return "Place to visit: " + name
+                + ". Reason: " + reason
+                + ". Date created: " + dateCreated;
+    }
 
 }
