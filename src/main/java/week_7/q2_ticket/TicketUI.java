@@ -19,6 +19,9 @@ public class TicketUI {
     static final int SHOW_NEXT_TICKET_MENU_OPTION_NUMBER = 4;
     static final int SHOW_ALL_TICKETS_MENU_OPTION_NUMBER = 5;
 
+    static final int DELETE_BY_DESCRIPTION_MENU_OPTION_NUMBER = 6;
+    static final int SEARCH_BY_DESCRIPTION_MENU_OPTION_NUMBER = 7;
+
     static final int QUIT_MENU_OPTION_NUMBER = 99;
     
     private Map<Integer, String> options = new TreeMap<>();
@@ -68,6 +71,9 @@ public class TicketUI {
 
         // TODO Problem 3: add the new options to the options HashMap.
 
+        options.put(DELETE_BY_DESCRIPTION_MENU_OPTION_NUMBER, "Delete by Description");
+        options.put(SEARCH_BY_DESCRIPTION_MENU_OPTION_NUMBER, "Search by Description");
+
         options.put(QUIT_MENU_OPTION_NUMBER, "Quit the program");
         
     }
@@ -109,7 +115,11 @@ public class TicketUI {
         //  enters a priority between 1 and 5.
         //  Loop until user enters a valid priority.
         //  Use the intInput method to ask for input, not positiveIntInput.
-        int priority = intInput("Enter priority of " + description);
+        int priority;
+
+        do {
+            priority = intInput("Enter priority of " + description);
+        } while (priority < 1 || priority > 5);
         
         return new Ticket(description, priority, reporter, dateReported);
     }

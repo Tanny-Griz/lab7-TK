@@ -119,7 +119,23 @@ public class TicketStore {
         // If this method does not find any matching tickets, return an empty list.
         // If this method is called with an empty string, or a null string, it should return an empty list.
 
-        return null;
+        List<Ticket> matchingTickets = new ArrayList<>();
+
+        // Checking for an empty string and null
+        if (searchDescription == null || searchDescription.isEmpty()) {
+            return matchingTickets;
+        }
+
+        for (Ticket ticket : ticketList) {
+            // Checking the description of each ticket
+            if (ticket.getDescription().toLowerCase()
+                    .contains(searchDescription.toLowerCase())) {
+
+                matchingTickets.add(ticket);
+            }
+        }
+
+        return matchingTickets;
     }
     
     

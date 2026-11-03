@@ -9,12 +9,14 @@ public class Ticket implements Comparable<Ticket> {
     private String description;
     private Date dateReported;
     private final int ticketID;    // The ID for each ticket, which will be unique for each ticket, and can't be changed once it is set.
-    
+
     // TODO Problem 5: Tickets need to store the resolution Date in a variable called dateResolved
+    private Date dateResolved;
     // TODO Problem 5: and a String describing the resolution, in a variable called resolution.
     //  Add two new fields (variables) here.
     //  You do not need to modify the constructor. When a new ticket is created,
     //  the user will not know the data resolved or the resolution.
+    private String resolution;
      
     public Ticket(String description, int priority, String reporter, Date dateReported) {
         this.description = description;
@@ -62,17 +64,40 @@ public class Ticket implements Comparable<Ticket> {
     public void setDateReported(Date dateReported) {
         this.dateReported = dateReported;
     }
+
+    public Date getDateResolved() {
+        return dateResolved;
+    }
+
+    public void setDateResolved(Date dateResolved) {
+        this.dateResolved = dateResolved;
+    }
+
+    public String getResolution() {
+        return resolution;
+    }
+
+    public void setResolution(String resolution) {
+        this.resolution = resolution;
+    }
     
     @Override
     public String toString(){
         
         // TODO Problem 5. Modify this method. If the ticket is not resolved, return the String below.
         //  If the ticket is resolved, return a String that includes the same data plus the resolution, and date resolved.
-        return "ID: " + this.ticketID
+        String ticketInfo = "ID: " + this.ticketID
                 + " Description: " + this.description
                 + " Priority: " + this.priority
                 + " Reported by: " + this.reporter
                 + " Reported on: " + this.dateReported;
+
+        if (dateResolved != null) {
+            ticketInfo += " Resolution: " + resolution
+                    + " Date resolved: " + dateResolved;
+        }
+
+        return ticketInfo;
     }
 
     @Override

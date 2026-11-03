@@ -1,6 +1,8 @@
 package week_7.q2_ticket;
 
+import java.util.Date;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * This code controls the program. It shows the menu, asks user for their choice,
@@ -21,6 +23,8 @@ public class TicketManager {
     private TicketStore ticketStore = TicketStore.getInstance(); // stores all the open tickets
     
     // TODO Problem 6: create a ResolvedTicketStore object here.
+    private ResolvedTicketStore resolvedTicketStore =
+            ResolvedTicketStore.getInstance();
 
 
     void manage() {
@@ -44,6 +48,10 @@ public class TicketManager {
                 menuOptionShowNextTicket();
             } else if (userChoice == TicketUI.SHOW_ALL_TICKETS_MENU_OPTION_NUMBER) {
                 menuOptionDisplayAllTickets();
+            } else if (userChoice == TicketUI.DELETE_BY_DESCRIPTION_MENU_OPTION_NUMBER) {
+                menuOptionDeleteTicketByDescription();
+            } else if (userChoice == TicketUI.SEARCH_BY_DESCRIPTION_MENU_OPTION_NUMBER) {
+                menuOptionSearchByDescription();
             } else if (userChoice == TicketUI.QUIT_MENU_OPTION_NUMBER) {
                 wantToQuit = true;
             }
@@ -111,6 +119,16 @@ public class TicketManager {
 
         // If there are no matching tickets, use TicketUI to display this exact user message "No matching tickets".
 
+        String searchTerm = ticketUI.askUserQuestion("Enter search term: ");
+
+        List<Ticket> matchingTickets = ticketStore.searchByDescription(searchTerm);
+
+        if (matchingTickets.isEmpty()) {
+            ticketUI.userMessage("No matching tickets");
+        } else {
+            ticketUI.displayTickets(matchingTickets);
+        }
+
     }
 
 
@@ -136,9 +154,24 @@ public class TicketManager {
 
         //  else, if there are no tickets found that match the search term, use TicketUI to show user 'not found' message
 
+        String searchTerm = ticketUI.askUserQuestion("Enter search term: ");
+        List<Ticket> matchingTickets = ticketStore.searchByDescription(searchTerm);
+
+        if (matchingTickets.isEmpty()) {
+            ticketUI.userMessage("No matching tickets");
+            return;
+        }
+
+        ticketUI.displayTickets(matchingTickets);
+        ticketUI.userMessage("Enter ticket ID to delete, or -1 to cancel");
+        int ticketID = ticketUI.getTicketID();
+
+        if (ticketID != -1) {
+            deleteTicketById(ticketID);
+        }
     }
 
-    
+
     /* Fetch a ticket with the given ID, verify user wishes to delete, gather resolution information.
     Remove ticket from store, and add to resolved tickets. */
     protected void deleteTicketById(int ticketID) {
@@ -159,11 +192,17 @@ public class TicketManager {
                 /// TODO Problem 6: use TicketUI to ask the user for the resolution for this Ticket
                 //  TODO Save the resolution and the current date in this Ticket object
                 //  TODO add the ticket ticketToDelete to the ResolvedTicketStore object.
+                String resolution = ticketUI.askUserQuestion("Enter resolution: ");
 
+                ticketToDelete.setResolution(resolution);
+                ticketToDelete.setDateResolved(new Date());
                 // Delete ticket from ticket store store.
                 ticketStore.deleteTicketById(ticketID);
 
                 // TODO Use ticketUI to display a delete confirmation message.
+                resolvedTicketStore.addTicket(ticketToDelete);
+
+                ticketUI.userMessage("Ticket deleted successfully.");
 
             } else {
                 ticketUI.userMessage("Cancelled - ticket not deleted.");
